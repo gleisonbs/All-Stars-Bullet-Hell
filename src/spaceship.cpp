@@ -17,10 +17,10 @@ Spaceship::Spaceship() {}
 Spaceship::Spaceship(string race) {
 	//texture.loadFromFile(IMAGES_SHIPS + race + "/ship.png");
 	sprite.setTexture(ResourceManager::Textures[race]);
-	sprite.setOrigin(sprite.getLocalBounds().width/2, 
+	sprite.setOrigin(sprite.getLocalBounds().width/2,
 									 sprite.getLocalBounds().height/2);
 	sprite.setColor(Color(255, 255, 255, 255));
-	sprite.setPosition(WINDOW_WIDTH/2, 
+	sprite.setPosition(WINDOW_WIDTH/2,
 		WINDOW_HEIGHT-(sprite.getLocalBounds().height/2)-30);
 
 	sprite.scale(0.6, 0.6);
@@ -42,7 +42,7 @@ void Spaceship::shoot() {
 
 	bool is_shooting = Keyboard::isKeyPressed(Keyboard::Key::Space);
 	if(is_shooting) {
-		bullets.push_back(Bullet(sprite.getPosition().x, 
+		bullets.push_back(Bullet(sprite.getPosition().x,
 									top(), damage));
 
 		timer.restart();
@@ -60,7 +60,7 @@ int Spaceship::take_hit(int dmge) {
 }
 
 Sprite Spaceship::frame() {
-	if(exploding) 
+	if(exploding)
 		return explosion.frame();
 	return sprite;
 }

@@ -10,31 +10,22 @@
 
 #include "bullet.hpp"
 #include "animation.hpp"
- 
-class Spaceship {
+
+class Spaceship : Drawable {
 public:
 	Spaceship();
 	Spaceship(std::string);
 	void shoot();
 	int take_hit(int);
 	sf::Sprite frame();
-	sf::FloatRect rect() { return sprite.getGlobalBounds(); }
+//	sf::FloatRect rect() { return sprite.getGlobalBounds(); }
 	std::vector<Bullet> bullets;
 	int hit_points, max_hit_points;
 	int damage;
 	bool exploding {};
 	bool destroyed {};
-	sf::Sprite sprite;
+//	sf::Sprite sprite;
 	Animation explosion;
-
-	float x() 		 	 		 { return sprite.getPosition().x; }
-	float y() 		 	 		 { return sprite.getPosition().y; }
-	float width()  	 		 { return rect().width; }
-	float height() 	 		 { return rect().height; }
-	float left()	 	 		 { return x() - width()/2; }
-	float right()	 	 		 { return x() + width()/2; }
-	float top()	 	 	 		 { return y() - height()/2; }
-	float bottom() 	 		 { return y() + height()/2; }
 
 protected:
 	int shooting_interval;
