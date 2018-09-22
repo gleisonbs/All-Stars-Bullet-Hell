@@ -11,18 +11,15 @@ using namespace std;
 using namespace sf;
 
 PlayingState::PlayingState() {
-	cout << 3553 << endl;
 	level_cleared = false;
 	for(int i = 0; i < STAR_COUNT; ++i) stars.push_back(Star());
 	//ship_manager = unique_ptr<ShipManager>(new ShipManager);
-	ship_manager.ship_factory.make_player1("Human");
+	ship_manager.ship_factory.make_player1(Races::race2);
 	//background = std::unique_ptr<sf::Sprite>(new sf::Sprite);
-	cout << 4 << endl;
 
 	background.setTexture(ResourceManager::Textures["L1_background"]);
 	background.setColor(Color(255, 255, 255, 255));
 	background.setPosition(0, -6940);
-	cout << 5 << endl;
 }
 
 void PlayingState::draw() {
@@ -35,7 +32,6 @@ void PlayingState::draw() {
 		}
 	}
 	else level_cleared = true;
-
 
 	GameManager::window->draw(background);
 	draw_players();
@@ -78,7 +74,6 @@ void PlayingState::update() {
 
 void PlayingState::draw_players() {
 	GameManager::window->draw(ship_manager.ship_factory.player1.frame());
-	//GameManager::window->draw(ship_manager.player1().lifebar());
 	ship_manager.ship_factory.player1.draw_lifebar();
 	ship_manager.ship_factory.player1.draw_score();
 
@@ -88,7 +83,7 @@ void PlayingState::draw_players() {
 }
 
 void PlayingState::draw_enemies() {
-	for(int i = 0; i < ship_manager.ship_factory.enemies.size(); ++i) { 
+	for(int i = 0; i < ship_manager.ship_factory.enemies.size(); ++i) {
 		GameManager::window->draw(ship_manager.ship_factory.enemies[i].frame());
 	}
 }

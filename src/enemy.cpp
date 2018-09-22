@@ -11,7 +11,7 @@ using namespace sf;
 Enemy::Enemy(string name, Vector2f position)
 						 : Spaceship(name) {
 	sprite.setPosition(position);
-	sprite.setOrigin(sprite.getGlobalBounds().width/2, 
+	sprite.setOrigin(sprite.getGlobalBounds().width/2,
 									 sprite.getGlobalBounds().height/2);
 	sprite.rotate(180);
 	max_speed.x = 0;

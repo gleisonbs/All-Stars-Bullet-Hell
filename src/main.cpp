@@ -15,18 +15,18 @@ using namespace std;
 using namespace sf;
 
 void load_textures() {
-	ResourceManager::addTexture("Alien", IMAGES_SHIPS + "Alien/ship.png");
-	ResourceManager::addTexture("Human", IMAGES_SHIPS + "Human/ship.png");
-	ResourceManager::addTexture("Robot", IMAGES_SHIPS + "Robot/ship.png");
+	ResourceManager::addTexture("faction3", IMAGES_SHIPS +  Races::race3 + "\\alien4.png");
+	ResourceManager::addTexture("faction2", IMAGES_SHIPS + Races::race2 + "\\blueship4.png");
+	ResourceManager::addTexture("faction5", IMAGES_SHIPS + Races::race5 + "\\F5S3.png");
 	ResourceManager::addTexture("Bullet", IMAGES_DIR + "bullet.png");
-	ResourceManager::addTexture("Selector", IMAGES_DIR + "tribase-u2-d0.png");
-	ResourceManager::addTexture("Explosion", IMAGES_DIR + "explosions/explosion.png");
+	ResourceManager::addTexture("Selector", IMAGES_DIR + "faction4-Spacestations\\Spacestation.png");
+	ResourceManager::addTexture("Explosion", IMAGES_DIR + "explosions\\explosion.png");
 	ResourceManager::addTexture("L1_background", IMAGES_DIR + "level1_background.png");
 }
 
 void load_fonts() {
-	ResourceManager::addFont("Cardiff", "Fonts/cardiff.ttf");
-	ResourceManager::addFont("SpaceAge", "Fonts/space_age.ttf");
+	ResourceManager::addFont("Cardiff", "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\fonts\\cardiff.ttf");
+	ResourceManager::addFont("SpaceAge", "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\fonts\\space_age.ttf");
 }
 
 void check_pause(sf::Clock &timer) {
@@ -53,13 +53,13 @@ int main(int argc, char* argv[])
 	load_textures();
 	load_fonts();
 
-	string name = "Human";
+	string name = Races::race2;
 	if(argc > 1) name = argv[1];
 
-	RenderWindow window {{WINDOW_WIDTH, WINDOW_HEIGHT}, "All Stars" };
+	RenderWindow window {{WINDOW_WIDTH, WINDOW_HEIGHT}, GAME_TITLE };
 	window.setFramerateLimit(60);
 
-	window.setMouseCursorVisible(false);
+	//window.setMouseCursorVisible(false);
 
 	GameManager::window = &window;
 	GameManager::push_state(new MainMenu());

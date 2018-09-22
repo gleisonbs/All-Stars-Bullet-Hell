@@ -17,7 +17,6 @@ GameManager::~GameManager() {
 }
 
 void GameManager::push_state(GameState *state) {
-	cout << 1 << endl;
 	game_states.push(state);
 }
 
@@ -27,12 +26,12 @@ void GameManager::pop_state() {
 }
 
 void GameManager::handle_input() {
-	
+
 }
 
 void GameManager::run() {
 	Event event;
-	while(not game_states.empty()) {
+ 	while(not game_states.empty()) {
 		if(game_states.top()->handle_input()) {
 			pop_state();
 			continue;

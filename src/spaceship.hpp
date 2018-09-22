@@ -10,8 +10,9 @@
 
 #include "bullet.hpp"
 #include "animation.hpp"
+#include "drawable.hpp"
 
-class Spaceship : Drawable {
+class Spaceship : public Drawable {
 public:
 	Spaceship();
 	Spaceship(std::string);

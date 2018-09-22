@@ -21,6 +21,6 @@ Star::Star() {
 
 void Star::update() {
 	shape.move(speed);
-	if (shape.getPosition().y >= WINDOW_HEIGHT) 
-		delete_star = true;
+	if (shape.getPosition().y >= WINDOW_HEIGHT)
+		should_be_deleted = true;
 }

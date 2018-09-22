@@ -30,12 +30,12 @@ void ShipManager::check_collisions() {
 
 	for(int i = 0; i < ship_factory.enemies.size(); ++i) {
 		for(int j = 0; j < ship_factory.player1.bullets.size(); ++j) {
-			if(ship_factory.enemies[i].out_of_screen() or 
-				 ship_factory.enemies[i].destroyed or 
+			if(ship_factory.enemies[i].out_of_screen() or
+				 ship_factory.enemies[i].destroyed or
 				 ship_factory.enemies[i].exploding)
 				continue;
 
-			if(ship_factory.player1.bullets[j].rect().intersects(ship_factory.enemies[i].rect())) {
+			if( ship_factory.player1.bullets[j].rect().intersects(ship_factory.enemies[i].rect())) {
 				ship_factory.enemies[i].take_hit(ship_factory.player1.bullets[j].damage);
 				ship_factory.player1.bullets.erase(ship_factory.player1.bullets.begin()+j);
 			}

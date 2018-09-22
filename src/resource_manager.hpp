@@ -7,32 +7,36 @@
 #include <string>
 
 class ResourceManager {
-private:
-    ResourceManager resourceManager = nullptr;
-    ResourceManager() {}
+    //std::string spritesPath = nullptr;
+    //ResourceManager resourceManager = nullptr;
+    //ResourceManager() {}
 
 public:
+    /*void loadSprites(const std::string &path){
+
+    }
+
     ResourceManager get() {
         if (resourceManager == nullptr) {
             resourceManager = ResourceManager();
         }
         return resourceManager;
-    }
+    }*/
 
-	void addSprite(const std::string &name, const std::string &path) {
+	static void addTexture(const std::string &name, const std::string &path) {
 		sf::Texture tex;
 		tex.loadFromFile(path);
 		ResourceManager::Textures[name] = tex;
 	}
 
-	void addFont(const std::string &name, const std::string &path) {
+	static void addFont(const std::string &name, const std::string &path) {
 		sf::Font font;
 		font.loadFromFile(path);
 		ResourceManager::Fonts[name] = font;
 	}
 
-	std::map<std::string, sf::Texture> sprites;
-	std::map<std::string, sf::Font> fonts;
+	static std::map<std::string, sf::Texture> Textures;
+	static std::map<std::string, sf::Font> Fonts;
 };
 
 #endif // RESOURCE_MANAGER_HPP

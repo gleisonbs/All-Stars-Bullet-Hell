@@ -1,11 +1,14 @@
 #ifndef DRAWABLE_HPP
 #define DRAWABLE_HPP
 
+#include <SFML/Graphics.hpp>
+
 class Drawable {
 public:
-    Drawable(sf::Texture, int, int, double, double);
+    Drawable() {};
+    Drawable(std::string, int, int, double, double);
     sf::Sprite frame();
-protected:
+
     sf::FloatRect rect() { return sprite.getGlobalBounds(); }
 
     float x()       { return sprite.getPosition().x; }
@@ -18,6 +21,7 @@ protected:
 	float bottom()  { return y() + height()/2; }
 
     sf::Sprite sprite;
+    sf::Texture texture;
 };
 
 #endif // DRAWABLE_HPP

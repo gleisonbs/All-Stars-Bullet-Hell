@@ -22,7 +22,6 @@ private:
 	std::vector<Star> stars;
 	ShipManager ship_manager;
 	bool level_cleared;
-	//ShipFactory ship_factory;
 };
 
 #endif // PLAYING_STATE_HPP

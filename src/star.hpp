@@ -8,7 +8,7 @@ class Star {
 public:
 	Star();
 	void update();
-	bool delete_star = false;
+	bool should_be_deleted = false;
 	sf::CircleShape shape;
 private:
 	sf::Vector2f speed;

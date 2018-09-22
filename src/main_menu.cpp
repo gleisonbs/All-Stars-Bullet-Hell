@@ -8,7 +8,7 @@
 using namespace std;
 using namespace sf;
 
-MainMenu::MainMenu() { 
+MainMenu::MainMenu() {
 
 	mnu_start.setFont(ResourceManager::Fonts["SpaceAge"]);
 	mnu_start.setString("Start");
@@ -19,13 +19,13 @@ MainMenu::MainMenu() {
 	mnu_options.setFont(ResourceManager::Fonts["SpaceAge"]);
 	mnu_options.setString("Options");
 	mnu_options.setCharacterSize(48);
-	mnu_options.setPosition((WINDOW_WIDTH-mnu_options.getLocalBounds().width)/2, 
+	mnu_options.setPosition((WINDOW_WIDTH-mnu_options.getLocalBounds().width)/2,
 		2*(WINDOW_HEIGHT/4));
 
 	mnu_exit.setFont(ResourceManager::Fonts["SpaceAge"]);
 	mnu_exit.setString("Exit");
 	mnu_exit.setCharacterSize(48);
-	mnu_exit.setPosition((WINDOW_WIDTH-mnu_exit.getLocalBounds().width)/2, 
+	mnu_exit.setPosition((WINDOW_WIDTH-mnu_exit.getLocalBounds().width)/2,
 		3*(WINDOW_HEIGHT/4));
 
 	selector.setTexture(ResourceManager::Textures["Selector"]);
@@ -48,7 +48,6 @@ bool MainMenu::handle_input() {
 			}
 			else if(e.key.code == Keyboard::Key::Return) {
 				if(index == 0) {
-					cout << 555 << endl;
 					GameManager::push_state(new PlayingState());
 				}
 				if(index == 2) {

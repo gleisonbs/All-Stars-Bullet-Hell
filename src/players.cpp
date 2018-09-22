@@ -11,7 +11,7 @@ using namespace sf;
 
 
 Player::Player(string race) : Spaceship(race) {}
-Player::Player() : Spaceship("Human") {}
+Player::Player() : Spaceship("faction2") {}
 
 void Player::update() {
 	explosion.set_position(sprite.getPosition());
@@ -27,7 +27,7 @@ void Player::update() {
 		current_speed.x = -max_speed.x;
 	else if(going_right and right() <= WINDOW_WIDTH)
 		current_speed.x = max_speed.x;
-	else 
+	else
 		current_speed.x = 0;
 
 	bool going_top = Keyboard::isKeyPressed(Keyboard::Key::Up);
@@ -36,15 +36,17 @@ void Player::update() {
 		current_speed.y = -max_speed.y;
 	else if(going_bottom and bottom() <= WINDOW_HEIGHT)
 		current_speed.y = max_speed.y;
-	else 
+	else
 		current_speed.y = 0;
 
 	shoot();
 
 	for(int i = 0; i < bullets.size(); ++i) {
 		bullets[i].update();
-		if(bullets[i].out_of_screen)
+		if(bullets[i].out_of_screen) {
+            cout << "ofs" << endl;
 			bullets.erase(bullets.begin()+i);
+		}
 	}
 
 	if(explosion.played) destroyed = true;
@@ -66,7 +68,7 @@ int Player::take_hit(int dmge) {
 }
 
 void Player::draw_lifebar() {
-	
+
 	RectangleShape in_rec;
 	in_rec.setSize(Vector2f(hit_points, 50));
 	in_rec.setOutlineThickness(0);
