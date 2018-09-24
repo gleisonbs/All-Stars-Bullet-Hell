@@ -4,9 +4,9 @@
 #include <vector>
 #include <memory>
 
-#include "game_state.hpp"
-#include "ship_manager.hpp"
-#include "star.hpp"
+#include "../include/game_state.hpp"
+#include "../include/ship_manager.hpp"
+#include "../include/star.hpp"
 
 class PlayingState : public GameState {
 public:

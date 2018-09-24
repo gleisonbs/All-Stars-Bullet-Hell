@@ -1,10 +1,11 @@
 #ifndef SHIP_MANAGER_HPP
 #define SHIP_MANAGER_HPP
 
-#include "enemy.hpp"
-#include "ship_factory.hpp"
-#include "players.hpp"
 #include <vector>
+
+#include "../include/enemy.hpp"
+#include "../include/ship_factory.hpp"
+#include "../include/players.hpp"
 
 class ShipManager
 {

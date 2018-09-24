@@ -1,6 +1,6 @@
-#include "animation.hpp"
-#include "constants.hpp"
-#include "resource_manager.hpp"
+#include "../include/animation.hpp"
+#include "../include/constants.hpp"
+#include "../include/resources.hpp"
 
 #include <iostream>
 

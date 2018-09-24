@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "spaceship.hpp"
+#include "../include/spaceship.hpp"
 
 class Enemy : public Spaceship {
 public:

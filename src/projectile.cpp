@@ -1,10 +1,11 @@
-#include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "bullet.hpp"
-#include "constants.hpp"
-#include "game_manager.hpp"
-#include "resource_manager.hpp"
+#include <SFML/Graphics.hpp>
+
+#include "../include/projectile.hpp"
+#include "../include/constants.hpp"
+#include "../include/game_manager.hpp"
+#include "../include/resources.hpp"
 
 using namespace std;
 using namespace sf;

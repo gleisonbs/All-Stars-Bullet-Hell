@@ -3,18 +3,18 @@
 #include <iostream>
 #include <map>
 
-#include "constants.hpp"
-#include "game_manager.hpp"
-#include "spaceship.hpp"
-#include "ships.hpp"
-#include "resource_manager.hpp"
+#include "../include/constants.hpp"
+#include "../include/game_manager.hpp"
+#include "../include/spaceship.hpp"
+#include "../include/ships.hpp"
+#include "../include/resources.hpp"
 
 using namespace std;
 using namespace sf;
 
 Spaceship::Spaceship(string race) :
     Drawable(race, 500, 900, 0.6, 0.6),
-    Movable(sf::Vector2f({500, 900}), sf::Vector2f({20, 20}), sf::Vector2f({.5, .5}) ) {
+    Movable(sf::Vector2f({500, 900}), sf::Vector2f({20, 20}), sf::Vector2f({20, 20}) ) {
 
 	hit_points = Ships::details[race]->hit_points;
 	max_hit_points = hit_points;

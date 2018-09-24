@@ -1,9 +1,11 @@
 #ifndef GAME_MANAGER_HPP
 #define GAME_MANAGER_HPP
 
-#include <SFML/Graphics.hpp>
 #include <stack>
-#include "game_state.hpp"
+
+#include <SFML/Graphics.hpp>
+
+#include "../include/game_state.hpp"
 
 class GameManager {
 public:

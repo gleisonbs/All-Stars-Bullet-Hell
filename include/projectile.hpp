@@ -1,5 +1,5 @@
-#ifndef BULLET_HPP
-#define BULLET_HPP
+#ifndef PROJECTILE_HPP
+#define PROJECTILE_HPP
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
@@ -27,4 +27,4 @@ private:
 	float bottom() 	 		 { return y() + height()/2; }
 };
 
-#endif // BULLET_HPP
+#endif // PROJECTILE_HPP

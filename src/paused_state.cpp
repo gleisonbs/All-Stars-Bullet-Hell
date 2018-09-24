@@ -1,7 +1,7 @@
-#include "paused_state.hpp"
-#include "game_manager.hpp"
-#include "resource_manager.hpp"
-#include "constants.hpp"
+#include "../include/paused_state.hpp"
+#include "../include/game_manager.hpp"
+#include "../include/resources.hpp"
+#include "../include/constants.hpp"
 
 #include <iostream>
 

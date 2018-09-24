@@ -1,5 +1,6 @@
 #include <cmath>
-#include "movable.hpp"
+
+#include "../include/movable.hpp"
 
 Movable::Movable(sf::Vector2f initialPosition, sf::Vector2f maxSpeed, sf::Vector2f acceleration)
 {

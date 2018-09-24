@@ -1,11 +1,11 @@
-#include "constants.hpp"
-#include "playing_state.hpp"
-#include "game_manager.hpp"
-#include "resource_manager.hpp"
-#include "paused_state.hpp"
-#include "main_menu.hpp"
-
 #include <iostream>
+
+#include "../include/constants.hpp"
+#include "../include/playing_state.hpp"
+#include "../include/game_manager.hpp"
+#include "../include/resources.hpp"
+#include "../include/paused_state.hpp"
+#include "../include/main_menu.hpp"
 
 using namespace std;
 using namespace sf;

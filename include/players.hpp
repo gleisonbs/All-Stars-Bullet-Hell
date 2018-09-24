@@ -5,7 +5,7 @@
 
 #include <string>
 
-#include "spaceship.hpp"
+#include "../include/spaceship.hpp"
 
 class Player : public Spaceship {
 public:

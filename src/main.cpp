@@ -2,14 +2,14 @@
 #include <iostream>
 #include <vector>
 
-#include "animation.hpp"
-#include "constants.hpp"
-#include "enemy.hpp"
-#include "game_manager.hpp"
-#include "main_menu.hpp"
-#include "ship_factory.hpp"
-#include "spaceship.hpp"
-#include "resource_manager.hpp"
+#include "../include/animation.hpp"
+#include "../include/constants.hpp"
+#include "../include/enemy.hpp"
+#include "../include/game_manager.hpp"
+#include "../include/main_menu.hpp"
+#include "../include/ship_factory.hpp"
+#include "../include/spaceship.hpp"
+#include "../include/resources.hpp"
 
 using namespace std;
 using namespace sf;

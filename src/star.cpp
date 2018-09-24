@@ -1,8 +1,8 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "constants.hpp"
-#include "star.hpp"
+#include "../include/constants.hpp"
+#include "../include/star.hpp"
 
 using namespace std;
 using namespace sf;

@@ -1,5 +1,5 @@
-#include "constants.hpp"
-#include "ships.hpp"
+#include "../include/constants.hpp"
+#include "../include/ships.hpp"
 
 using namespace std;
 

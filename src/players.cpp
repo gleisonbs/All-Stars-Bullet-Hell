@@ -1,10 +1,10 @@
-#include "constants.hpp"
-#include "players.hpp"
-#include "game_manager.hpp"
-#include "resource_manager.hpp"
-
 #include <iostream>
 #include <string>
+
+#include "../include/constants.hpp"
+#include "../include/players.hpp"
+#include "../include/game_manager.hpp"
+#include "../include/resources.hpp"
 
 using namespace std;
 using namespace sf;

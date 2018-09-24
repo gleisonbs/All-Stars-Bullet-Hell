@@ -1,10 +1,10 @@
-#ifndef RESOURCE_MANAGER_HPP
-#define RESOURCE_MANAGER_HPP
-
-#include <SFML/Graphics.hpp>
+#ifndef RESOURCES_HPP
+#define RESOURCES_HPP
 
 #include <map>
 #include <string>
+
+#include <SFML/Graphics.hpp>
 
 class Resources {
     //std::string spritesPath = nullptr;
@@ -39,4 +39,4 @@ public:
 	static std::map<std::string, sf::Font> Fonts;
 };
 
-#endif // RESOURCE_MANAGER_HPP
+#endif // RESOURCES_HPP

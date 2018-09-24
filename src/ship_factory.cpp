@@ -1,5 +1,5 @@
-#include "ship_factory.hpp"
-#include "constants.hpp"
+#include "../include/ship_factory.hpp"
+#include "../include/constants.hpp"
 
 #include <iostream>
 

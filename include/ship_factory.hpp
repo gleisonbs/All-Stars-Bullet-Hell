@@ -1,15 +1,15 @@
 #ifndef SHIP_FACTORY_HPP
 #define SHIP_FACTORY_HPP
 
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "enemy.hpp"
-#include "players.hpp"
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+
+#include "../include/enemy.hpp"
+#include "../include/players.hpp"
 
 class ShipFactory {
 public:

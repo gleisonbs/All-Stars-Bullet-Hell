@@ -1,9 +1,9 @@
-#include "main_menu.hpp"
-#include "constants.hpp"
-#include "playing_state.hpp"
-#include "game_manager.hpp"
-
 #include <iostream>
+
+#include "../include/main_menu.hpp"
+#include "../include/constants.hpp"
+#include "../include/playing_state.hpp"
+#include "../include/game_manager.hpp"
 
 using namespace std;
 using namespace sf;

@@ -1,5 +1,6 @@
-#include "game_manager.hpp"
 #include <iostream>
+
+#include "../include/game_manager.hpp"
 
 using namespace std;
 using namespace sf;

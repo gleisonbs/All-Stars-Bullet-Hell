@@ -1,5 +1,5 @@
-#include "drawable.hpp"
-#include "resource_manager.hpp"
+#include "../include/drawable.hpp"
+#include "../include/resources.hpp"
 
 Drawable::Drawable(std::string race, int x_pos, int y_pos, double x_scale, double y_scale) {
 	//texture.loadFromFile();

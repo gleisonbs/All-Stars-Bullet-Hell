@@ -5,9 +5,9 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "game_state.hpp"
-#include "resource_manager.hpp"
-#include "star.hpp"
+#include "../include/game_state.hpp"
+#include "../include/resources.hpp"
+#include "../include/star.hpp"
 
 class MainMenu : public GameState {
 public:

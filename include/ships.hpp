@@ -1,9 +1,11 @@
 #ifndef SHIPS_HPP
 #define SHIPS_HPP
 
-#include <SFML/Graphics.hpp>
 #include <map>
-#include "ship_details.hpp"
+
+#include <SFML/Graphics.hpp>
+
+#include "../include/ship_details.hpp"
 
 class Ships {
 public:

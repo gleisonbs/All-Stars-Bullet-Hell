@@ -2,8 +2,8 @@
 #include <iostream>
 #include <map>
 
-#include "constants.hpp"
-#include "enemy.hpp"
+#include "../include/constants.hpp"
+#include "../include/enemy.hpp"
 
 using namespace std;
 using namespace sf;

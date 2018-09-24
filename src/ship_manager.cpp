@@ -1,5 +1,7 @@
-#include "ship_manager.hpp"
 #include <iostream>
+
+#include "../include/ship_manager.hpp"
+
 using namespace std;
 
 void ShipManager::update() {

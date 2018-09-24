@@ -1,17 +1,17 @@
 #ifndef SPACESHIP_HPP
 #define SPACESHIP_HPP
 
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "bullet.hpp"
-#include "animation.hpp"
-#include "drawable.hpp"
-#include "movable.hpp"
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+
+#include "../include/projectile.hpp"
+#include "../include/animation.hpp"
+#include "../include/drawable.hpp"
+#include "../include/movable.hpp"
 
 class Spaceship : public Drawable, public Movable {
 public:

@@ -1,9 +1,10 @@
 #ifndef SHIP_DETAILS_HPP
 #define SHIP_DETAILS_HPP
 
-#include <SFML/Graphics.hpp>
 #include <map>
 #include <string>
+
+#include <SFML/Graphics.hpp>
 
 struct ShipDetails
 {
