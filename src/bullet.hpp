@@ -4,10 +4,10 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-class Bullet {
+class Projectile {
 public:
-	Bullet(int, int, int);
-	Bullet(const Bullet &b) = default;
+	Projectile(int, int, int);
+	Projectile(const Projectile &b) = default;
 	void update();
 	sf::FloatRect rect() { return sprite.getGlobalBounds(); }
 	sf::Sprite sprite;

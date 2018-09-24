@@ -14,7 +14,6 @@ Enemy::Enemy(string name, Vector2f position)
 	sprite.setOrigin(sprite.getGlobalBounds().width/2,
 									 sprite.getGlobalBounds().height/2);
 	sprite.rotate(180);
-	max_speed.x = 0;
 }
 
 bool Enemy::out_of_screen() {
@@ -23,7 +22,7 @@ bool Enemy::out_of_screen() {
 
 void Enemy::update() {
 	if(hit_points > 0)
-		sprite.move(max_speed);
+		sprite.move(sf::Vector2f{0, 1});
 
 	explosion.set_position(sprite.getPosition());
 }

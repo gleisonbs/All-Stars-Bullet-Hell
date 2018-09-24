@@ -11,8 +11,9 @@
 #include "bullet.hpp"
 #include "animation.hpp"
 #include "drawable.hpp"
+#include "movable.hpp"
 
-class Spaceship : public Drawable {
+class Spaceship : public Drawable, public Movable {
 public:
 	Spaceship();
 	Spaceship(std::string);
@@ -20,7 +21,7 @@ public:
 	int take_hit(int);
 	sf::Sprite frame();
 //	sf::FloatRect rect() { return sprite.getGlobalBounds(); }
-	std::vector<Bullet> bullets;
+	std::vector<Projectile> projectiles;
 	int hit_points, max_hit_points;
 	int damage;
 	bool exploding {};
@@ -31,8 +32,6 @@ public:
 protected:
 	int shooting_interval;
 	sf::Clock timer;
-	sf::Vector2f max_speed {0, 0};
-	sf::Vector2f current_speed {0, 0};
 };
 
 #endif //SPACESHIP_HPP

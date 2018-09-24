@@ -8,6 +8,7 @@ public:
     Drawable() {};
     Drawable(std::string, int, int, double, double);
     sf::Sprite frame();
+    void setPosition(sf::Vector2f position) { sprite.setPosition(position); }
 
     sf::FloatRect rect() { return sprite.getGlobalBounds(); }
 

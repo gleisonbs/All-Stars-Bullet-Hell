@@ -12,21 +12,10 @@
 using namespace std;
 using namespace sf;
 
-Spaceship::Spaceship() {}
+Spaceship::Spaceship(string race) :
+    Drawable(race, 500, 900, 0.6, 0.6),
+    Movable(sf::Vector2f({500, 900}), sf::Vector2f({20, 20}), sf::Vector2f({.5, .5}) ) {
 
-Spaceship::Spaceship(string race) : Drawable(race, 100, 100, 0.6, 0.6) {
-    /*Drawable(ResourceManager::Textures[race];
-	//texture.loadFromFile(IMAGES_SHIPS + race + "/ship.png");
-	sprite.setTexture(ResourceManager::Textures[race]);
-	sprite.setOrigin(sprite.getLocalBounds().width/2,
-									 sprite.getLocalBounds().height/2);
-	sprite.setColor(Color(255, 255, 255, 255));
-	sprite.setPosition(WINDOW_WIDTH/2,
-		WINDOW_HEIGHT-(sprite.getLocalBounds().height/2)-30);
-
-	sprite.scale(0.6, 0.6);*/
-
-	max_speed = Ships::details[race]->speed;
 	hit_points = Ships::details[race]->hit_points;
 	max_hit_points = hit_points;
 	damage = Ships::details[race]->damage;
@@ -44,7 +33,7 @@ void Spaceship::shoot() {
 	bool is_shooting = Keyboard::isKeyPressed(Keyboard::Key::Space);
 	cout << is_shooting << endl;
 	if(is_shooting) {
-		bullets.push_back(Bullet(sprite.getPosition().x,
+		projectiles.push_back(Projectile(sprite.getPosition().x,
 									top(), damage));
 
 		timer.restart();

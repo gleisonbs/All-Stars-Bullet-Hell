@@ -15,18 +15,18 @@ using namespace std;
 using namespace sf;
 
 void load_textures() {
-	ResourceManager::addTexture("faction3", IMAGES_SHIPS +  Races::race3 + "\\alien4.png");
-	ResourceManager::addTexture("faction2", IMAGES_SHIPS + Races::race2 + "\\blueship4.png");
-	ResourceManager::addTexture("faction5", IMAGES_SHIPS + Races::race5 + "\\F5S3.png");
-	ResourceManager::addTexture("Bullet", IMAGES_DIR + "bullet.png");
-	ResourceManager::addTexture("Selector", IMAGES_DIR + "faction4-Spacestations\\Spacestation.png");
-	ResourceManager::addTexture("Explosion", IMAGES_DIR + "explosions\\explosion.png");
-	ResourceManager::addTexture("L1_background", IMAGES_DIR + "level1_background.png");
+	Resources::addTexture("faction3", IMAGES_SHIPS +  Races::race3 + "\\alien4.png");
+	Resources::addTexture("faction2", IMAGES_SHIPS + Races::race2 + "\\blueship4.png");
+	Resources::addTexture("faction5", IMAGES_SHIPS + Races::race5 + "\\F5S3.png");
+	Resources::addTexture("Bullet", IMAGES_DIR + "bullet.png");
+	Resources::addTexture("Selector", IMAGES_DIR + "faction4-Spacestations\\Spacestation.png");
+	Resources::addTexture("Explosion", IMAGES_DIR + "explosions\\explosion.png");
+	Resources::addTexture("L1_background", IMAGES_DIR + "level1_background.png");
 }
 
 void load_fonts() {
-	ResourceManager::addFont("Cardiff", "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\fonts\\cardiff.ttf");
-	ResourceManager::addFont("SpaceAge", "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\fonts\\space_age.ttf");
+	Resources::addFont("Cardiff", "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\fonts\\cardiff.ttf");
+	Resources::addFont("SpaceAge", "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\fonts\\space_age.ttf");
 }
 
 void check_pause(sf::Clock &timer) {

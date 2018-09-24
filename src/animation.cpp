@@ -14,7 +14,7 @@ void Animation::set(const string name, int frame_interval)
 	i = 0;
 	interval = frame_interval;
 
-	sprite.setTexture(ResourceManager::Textures[name]);
+	sprite.setTexture(Resources::Textures[name]);
 	sprite.setColor(Color(255, 255, 255, 255));
 	sprite.setPosition(WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
 }

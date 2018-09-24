@@ -8,15 +8,15 @@
 using namespace std;
 using namespace sf;
 
-PausedState::PausedState() 
+PausedState::PausedState()
 {
 	txt_pause = new Text();
-	txt_pause->setFont(ResourceManager::Fonts["SpaceAge"]);
+	txt_pause->setFont(Resources::Fonts["SpaceAge"]);
 	txt_pause->setString("PAUSED");
 	int string_width = txt_pause->getLocalBounds().width;
 	int string_height = txt_pause->getLocalBounds().height;
 	txt_pause->setCharacterSize(100);
-	txt_pause->setPosition((WINDOW_WIDTH/2)-string_width*2, 
+	txt_pause->setPosition((WINDOW_WIDTH/2)-string_width*2,
 												 WINDOW_HEIGHT/2-string_height);
 }
 

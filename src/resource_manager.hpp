@@ -6,7 +6,7 @@
 #include <map>
 #include <string>
 
-class ResourceManager {
+class Resources {
     //std::string spritesPath = nullptr;
     //ResourceManager resourceManager = nullptr;
     //ResourceManager() {}
@@ -26,13 +26,13 @@ public:
 	static void addTexture(const std::string &name, const std::string &path) {
 		sf::Texture tex;
 		tex.loadFromFile(path);
-		ResourceManager::Textures[name] = tex;
+		Resources::Textures[name] = tex;
 	}
 
 	static void addFont(const std::string &name, const std::string &path) {
 		sf::Font font;
 		font.loadFromFile(path);
-		ResourceManager::Fonts[name] = font;
+		Resources::Fonts[name] = font;
 	}
 
 	static std::map<std::string, sf::Texture> Textures;

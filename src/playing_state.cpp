@@ -17,7 +17,7 @@ PlayingState::PlayingState() {
 	ship_manager.ship_factory.make_player1(Races::race2);
 	//background = std::unique_ptr<sf::Sprite>(new sf::Sprite);
 
-	background.setTexture(ResourceManager::Textures["L1_background"]);
+	background.setTexture(Resources::Textures["L1_background"]);
 	background.setColor(Color(255, 255, 255, 255));
 	background.setPosition(0, -6940);
 }
@@ -77,9 +77,9 @@ void PlayingState::draw_players() {
 	ship_manager.ship_factory.player1.draw_lifebar();
 	ship_manager.ship_factory.player1.draw_score();
 
-	for(int i = 0; i < ship_manager.ship_factory.player1.bullets.size(); ++i)
+	for(int i = 0; i < ship_manager.ship_factory.player1.projectiles.size(); ++i)
 		GameManager::window->draw(
-			ship_manager.ship_factory.player1.bullets[i].sprite);
+			ship_manager.ship_factory.player1.projectiles[i].sprite);
 }
 
 void PlayingState::draw_enemies() {

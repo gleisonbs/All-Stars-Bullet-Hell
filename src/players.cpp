@@ -20,32 +20,23 @@ void Player::update() {
 		sprite.setColor(Color(255, 255, 255, 255));
 	}
 
-	sprite.move(current_speed);
-	bool going_left = Keyboard::isKeyPressed(Keyboard::Key::Left);
-	bool going_right = Keyboard::isKeyPressed(Keyboard::Key::Right);
-	if(going_left and left() >= 0)
-		current_speed.x = -max_speed.x;
-	else if(going_right and right() <= WINDOW_WIDTH)
-		current_speed.x = max_speed.x;
-	else
-		current_speed.x = 0;
+	bool goingLeft = Keyboard::isKeyPressed(Keyboard::Key::Left);
+	bool goingRight = Keyboard::isKeyPressed(Keyboard::Key::Right);
+	if (goingLeft and goingRight) { goingLeft = false; goingRight = false; }
 
-	bool going_top = Keyboard::isKeyPressed(Keyboard::Key::Up);
-	bool going_bottom = Keyboard::isKeyPressed(Keyboard::Key::Down);
-	if(going_top and top() >= 0)
-		current_speed.y = -max_speed.y;
-	else if(going_bottom and bottom() <= WINDOW_HEIGHT)
-		current_speed.y = max_speed.y;
-	else
-		current_speed.y = 0;
+	bool goingUp = Keyboard::isKeyPressed(Keyboard::Key::Up);
+	bool goingDown = Keyboard::isKeyPressed(Keyboard::Key::Down);
+	if(goingUp and goingDown) { goingUp = false; goingDown = false; }
 
+    move(goingLeft, goingRight, goingUp, goingDown);
+    setPosition(this->position);
 	shoot();
 
-	for(int i = 0; i < bullets.size(); ++i) {
-		bullets[i].update();
-		if(bullets[i].out_of_screen) {
+	for(int i = 0; i < projectiles.size(); ++i) {
+		projectiles[i].update();
+		if(projectiles[i].out_of_screen) {
             cout << "ofs" << endl;
-			bullets.erase(bullets.begin()+i);
+			projectiles.erase(projectiles.begin()+i);
 		}
 	}
 
@@ -88,7 +79,7 @@ void Player::draw_lifebar() {
 
 void Player::draw_score() {
 	sf::Text txt_score;
-	txt_score.setFont(ResourceManager::Fonts["SpaceAge"]);
+	txt_score.setFont(Resources::Fonts["SpaceAge"]);
 
 	string score_str = to_string(0);
 	while(score_str.size() < 6) score_str = "0" + score_str;

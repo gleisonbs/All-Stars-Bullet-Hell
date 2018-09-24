@@ -1,4 +1,4 @@
 #include "resource_manager.hpp"
 
-std::map<std::string, sf::Texture> ResourceManager::Textures = {};
-std::map<std::string, sf::Font> ResourceManager::Fonts = {};
+std::map<std::string, sf::Texture> Resources::Textures = {};
+std::map<std::string, sf::Font> Resources::Fonts = {};
