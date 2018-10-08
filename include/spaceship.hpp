@@ -16,17 +16,15 @@
 class Spaceship : public Drawable, public Movable {
 public:
 	Spaceship();
-	Spaceship(std::string);
+	Spaceship(const std::string, const std::string);
 	void shoot();
 	int take_hit(int);
 	sf::Sprite frame();
-//	sf::FloatRect rect() { return sprite.getGlobalBounds(); }
 	std::vector<Projectile> projectiles;
 	int hit_points, max_hit_points;
 	int damage;
 	bool exploding {};
 	bool destroyed {};
-//	sf::Sprite sprite;
 	Animation explosion;
 
 protected:

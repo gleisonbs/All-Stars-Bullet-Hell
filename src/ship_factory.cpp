@@ -8,8 +8,8 @@ using namespace sf;
 
 ShipFactory::ShipFactory() {}
 
-void ShipFactory::make_player1(string race) {
-	player1 = Player(race);
+void ShipFactory::make_player1(string faction) {
+	player1 = Player(faction);
 }
 
 void ShipFactory::update() {
@@ -23,11 +23,12 @@ void ShipFactory::update() {
 }
 
 void ShipFactory::make_wave1() {
-	enemies.push_back(Enemy(Races::race5, Vector2f(WINDOW_WIDTH/2, 0)));
-	enemies.push_back(Enemy(Races::race5, Vector2f(WINDOW_WIDTH/3, -300)));
-	enemies.push_back(Enemy(Races::race5, Vector2f(2*(WINDOW_WIDTH/3), -300)));
-	enemies.push_back(Enemy(Races::race5, Vector2f(WINDOW_WIDTH/6, -600)));
-	enemies.push_back(Enemy(Races::race5, Vector2f(5*WINDOW_WIDTH/6, -600)));
+    std::cout << Races::ResourcePrefix + Races::race5 + "_F5S2" << std::endl;
+	enemies.push_back(Enemy(Races::ResourcePrefix + Races::race5 + "_F5S2", Races::race5, Vector2f(WINDOW_WIDTH/2, 0)));
+	enemies.push_back(Enemy(Races::ResourcePrefix + Races::race5 + "_F5S2", Races::race3, Vector2f(WINDOW_WIDTH/3, -300)));
+	enemies.push_back(Enemy(Races::ResourcePrefix + Races::race5 + "_F5S2", Races::race5, Vector2f(2*(WINDOW_WIDTH/3), -300)));
+	enemies.push_back(Enemy(Races::ResourcePrefix + Races::race5 + "_F5S2", Races::race3, Vector2f(WINDOW_WIDTH/6, -600)));
+	enemies.push_back(Enemy(Races::ResourcePrefix + Races::race5 + "_F5S2", Races::race5, Vector2f(5*WINDOW_WIDTH/6, -600)));
 }
 
 void ShipFactory::make_wave2() {

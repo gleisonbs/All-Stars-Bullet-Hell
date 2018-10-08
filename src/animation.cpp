@@ -9,12 +9,12 @@ using namespace sf;
 
 Animation::Animation() { i = 0; }
 
-void Animation::set(const string name, int frame_interval)
+void Animation::set(const string textureKey, int frame_interval)
 {
 	i = 0;
 	interval = frame_interval;
 
-	sprite.setTexture(Resources::Textures[name]);
+	sprite.setTexture(Resources::getTexture(textureKey));
 	sprite.setColor(Color(255, 255, 255, 255));
 	sprite.setPosition(WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
 }

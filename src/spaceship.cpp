@@ -12,16 +12,16 @@
 using namespace std;
 using namespace sf;
 
-Spaceship::Spaceship(string race) :
-    Drawable(race, 500, 900, 0.6, 0.6),
-    Movable(sf::Vector2f({500, 900}), sf::Vector2f({20, 20}), sf::Vector2f({20, 20}) ) {
+Spaceship::Spaceship(const string textureKey, const string faction) :
+    Drawable(textureKey, 500, 900, 0.6, 0.6),
+    Movable(sf::Vector2f({500, 900}), sf::Vector2f({20, 20}), sf::Vector2f({1, 1}), Ships::details[faction]->backingSpeedFactor) {
 
-	hit_points = Ships::details[race]->hit_points;
+	hit_points = Ships::details[faction]->hit_points;
 	max_hit_points = hit_points;
-	damage = Ships::details[race]->damage;
-	shooting_interval = Ships::details[race]->shooting_interval;
+	damage = Ships::details[faction]->damage;
+	shooting_interval = Ships::details[faction]->shooting_interval;
 
-	explosion.set("Explosion", 60);
+	explosion.set(Races::ResourcePrefix + faction + "_explosions_explosion", 60);
 	for(int x = 0; x < 16; ++x)
 		explosion.add_frame(x*128, 0, 128, 128);
 }
@@ -34,7 +34,7 @@ void Spaceship::shoot() {
 	cout << is_shooting << endl;
 	if(is_shooting) {
 		projectiles.push_back(Projectile(sprite.getPosition().x,
-									top(), damage));
+									top(), damage, Races::race2));
 
 		timer.restart();
 	}

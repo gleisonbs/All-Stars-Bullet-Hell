@@ -7,7 +7,7 @@
 class Movable
 {
 public:
-    Movable(sf::Vector2f, sf::Vector2f, sf::Vector2f);
+    Movable(sf::Vector2f, sf::Vector2f, sf::Vector2f, double);
     void move(bool, bool, bool, bool);
 
 protected:
@@ -19,6 +19,7 @@ private:
     sf::Vector2f acceleration {0, 0};
     sf::Vector2f currentSpeed {0, 0};
     sf::Vector2f maxSpeed {0, 0};
+    double backingSpeedFactor;
 };
 
 #endif // MOVABLE_HPP

@@ -2,7 +2,7 @@
 
 #include "../include/movable.hpp"
 
-Movable::Movable(sf::Vector2f initialPosition, sf::Vector2f maxSpeed, sf::Vector2f acceleration)
+Movable::Movable(sf::Vector2f initialPosition, sf::Vector2f maxSpeed, sf::Vector2f acceleration, double backingSpeedFactor)
 {
     this->position.x = initialPosition.x;
     this->position.y = initialPosition.y;
@@ -10,6 +10,7 @@ Movable::Movable(sf::Vector2f initialPosition, sf::Vector2f maxSpeed, sf::Vector
     this->maxSpeed.y = maxSpeed.y;
     this->acceleration.x = acceleration.x;
     this->acceleration.y = acceleration.y;
+    this->backingSpeedFactor = backingSpeedFactor;
 }
 
 void Movable::accelerate(bool goingLeft, bool goingRight, bool goingUp, bool goingDown) {
@@ -28,7 +29,7 @@ void Movable::accelerate(bool goingLeft, bool goingRight, bool goingUp, bool goi
             currentSpeed.x += acceleration.x;
     }
 
-    if (goingDown and std::abs(currentSpeed.y) < maxSpeed.y)
+    if (goingDown and std::abs(currentSpeed.y) < (int)(maxSpeed.y * backingSpeedFactor))
         currentSpeed.y += acceleration.y;
     else if (goingUp and std::abs(currentSpeed.y) < maxSpeed.y)
         currentSpeed.y -= acceleration.y;
@@ -41,9 +42,6 @@ void Movable::accelerate(bool goingLeft, bool goingRight, bool goingUp, bool goi
         else if (currentSpeed.y < 0)
             currentSpeed.y += acceleration.y;
     }
-
-    if (currentSpeed.x < maxSpeed.x and goingRight)
-        currentSpeed.y += acceleration.y;
 }
 
 void Movable::move(bool goingLeft, bool goingRight, bool goingUp, bool goingDown) {

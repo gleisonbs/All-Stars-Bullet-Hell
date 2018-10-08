@@ -6,7 +6,7 @@
 
 class Projectile {
 public:
-	Projectile(int, int, int);
+	Projectile(int, int, int, const std::string&);
 	Projectile(const Projectile &b) = default;
 	void update();
 	sf::FloatRect rect() { return sprite.getGlobalBounds(); }

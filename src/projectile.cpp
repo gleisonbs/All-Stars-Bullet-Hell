@@ -10,11 +10,10 @@
 using namespace std;
 using namespace sf;
 
-Projectile::Projectile(int bullet_x, int bullet_y, int dmge) {
- 	sprite.setTexture(Resources::Textures[PROJECTILE]);
+Projectile::Projectile(int bullet_x, int bullet_y, int dmge, const std::string &faction) {
+ 	sprite.setTexture(Resources::getTexture(Races::ResourcePrefix + Races::race1 + "_projectiles_1"));
 	sprite.setOrigin(sprite.getLocalBounds().width/2,
 									 sprite.getLocalBounds().height/2);
-	//sprite.setColor(sf::Color(250, 250, 250, 250));
 	sprite.setPosition(bullet_x, bullet_y);
 	damage = dmge;
 }

@@ -17,7 +17,7 @@ PlayingState::PlayingState() {
 	ship_manager.ship_factory.make_player1(Races::race2);
 	//background = std::unique_ptr<sf::Sprite>(new sf::Sprite);
 
-	background.setTexture(Resources::Textures["L1_background"]);
+	background.setTexture(Resources::getTexture("sprites_backgrounds_lvl_1"));
 	background.setColor(Color(255, 255, 255, 255));
 	background.setPosition(0, -6940);
 }

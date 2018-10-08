@@ -5,11 +5,19 @@
 
 const std::string IMAGES_DIR = "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\sprites\\";
 const std::string IMAGES_SHIPS = "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\sprites\\spaceships\\";
+const std::string ROOT_PATH = "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\";
 constexpr int WINDOW_WIDTH = 1900;
 constexpr int WINDOW_HEIGHT = 1060;
 constexpr int STAR_COUNT = 600;
 
+namespace Fonts {
+    const std::string ResourcePrefix = "fonts_";
+    const std::string SpaceAge = "space_age";
+    const std::string Cardiff = "cardiff";
+}
+
 namespace Races {
+    const std::string ResourcePrefix = "sprites_factions_";
     const std::string race1 = "faction1";
     const std::string race2 = "faction2";
     const std::string race3 = "faction3";

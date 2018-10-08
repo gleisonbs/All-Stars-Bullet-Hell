@@ -10,25 +10,25 @@ using namespace sf;
 
 MainMenu::MainMenu() {
 
-	mnu_start.setFont(Resources::Fonts["SpaceAge"]);
+	mnu_start.setFont(Resources::getFont(Fonts::ResourcePrefix + Fonts::SpaceAge));
 	mnu_start.setString("Start");
 	mnu_start.setCharacterSize(48);
 	mnu_start.setPosition((WINDOW_WIDTH-mnu_start.getLocalBounds().width)/2,
 		WINDOW_HEIGHT/4);
 
-	mnu_options.setFont(Resources::Fonts["SpaceAge"]);
+	mnu_options.setFont(Resources::getFont(Fonts::ResourcePrefix + Fonts::SpaceAge));
 	mnu_options.setString("Options");
 	mnu_options.setCharacterSize(48);
 	mnu_options.setPosition((WINDOW_WIDTH-mnu_options.getLocalBounds().width)/2,
 		2*(WINDOW_HEIGHT/4));
 
-	mnu_exit.setFont(Resources::Fonts["SpaceAge"]);
+	mnu_exit.setFont(Resources::getFont(Fonts::ResourcePrefix + Fonts::SpaceAge));
 	mnu_exit.setString("Exit");
 	mnu_exit.setCharacterSize(48);
 	mnu_exit.setPosition((WINDOW_WIDTH-mnu_exit.getLocalBounds().width)/2,
 		3*(WINDOW_HEIGHT/4));
 
-	selector.setTexture(Resources::Textures["Selector"]);
+	selector.setTexture(Resources::getTexture("sprites_factions_faction8_wship1"));
 	selector.scale(0.2, 0.2);
 	selector.setOrigin(selector.getGlobalBounds().width/2,
 		selector.getGlobalBounds().height/2);
