@@ -1,5 +1,9 @@
 #include <iostream>
-#include <windows.h>
+#ifdef __MING32__
+	#include <windows.h>
+#elif __linux__
+	#include <dirent.h>
+#endif
 
 #include "../include/resources.hpp"
 #include "../include/util.hpp"
@@ -20,6 +24,8 @@ void Resources::addFont(const std::string &name, const std::string &path) {
 }
 
 void Resources::listFolderFiles(const std::string &path, int degree, std::string fullQualifier) {
+#ifdef __MING32__
+	std::cout << "WINDOWS DEF" << std::endl;
     HANDLE hFind;
     WIN32_FIND_DATA data;
 
@@ -56,6 +62,26 @@ void Resources::listFolderFiles(const std::string &path, int degree, std::string
     for (auto &p : folderList) {
         listFolderFiles(path + p + "\\", degree+1, fullQualifier + "_" + p);
     }
+#elif __linux__
+	DIR *d;
+	struct dirent *dir;
+	d = opendir(path.c_str());
+	if (d) {
+		while ((dir = readdir(d)) != NULL) {
+			std::string filename = dir->d_name;
+			if (filename == "." or filename == "..") continue;
+			std::string tabs = std::string(degree, ' ');
+			if (dir->d_type == DT_DIR) {
+				std::cout << tabs << path + filename + "/" << std::endl;
+				listFolderFiles(path + filename + "/", degree+1, fullQualifier + "_" + filename);
+			}
+			else {
+				std::cout << tabs << filename << std::endl;
+			}
+		}
+		closedir(d);
+	}
+#endif
 }
 
 void Resources::scan(const std::string &rootPath) {
