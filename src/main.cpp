@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
 {
 //    auto resourceManager = ResourceManager.get(ROOT_PATH);
     Resources::scan(ROOT_PATH);
-	return 0;
+
 	string name = Races::race2;
 	if(argc > 1) name = argv[1];
 

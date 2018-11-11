@@ -13,12 +13,12 @@ using namespace std;
 using namespace sf;
 
 Spaceship::Spaceship(const string textureKey, const string faction) :
-    Drawable(textureKey, 500, 900, 0.6, 0.6),
-    Movable(sf::Vector2f({500, 900}), sf::Vector2f({20, 20}), sf::Vector2f({1, 1}), Ships::details[faction]->backingSpeedFactor) {
+    Drawable(textureKey, 500, 900, 0.3, 0.3),
+    Movable(sf::Vector2f({500, 900}), sf::Vector2f({20, 20}), Ships::details[faction]->acceleration, Ships::details[faction]->backingSpeedFactor) {
 
 	hit_points = Ships::details[faction]->hit_points;
 	max_hit_points = hit_points;
-	damage = Ships::details[faction]->damage;
+	damage = Ships::details[faction]->body_damage;
 	shooting_interval = Ships::details[faction]->shooting_interval;
 
 	explosion.set(Races::ResourcePrefix + faction + "_explosions_explosion", 60);

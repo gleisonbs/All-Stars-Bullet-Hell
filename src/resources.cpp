@@ -8,11 +8,11 @@
 #include "../include/resources.hpp"
 #include "../include/util.hpp"
 
-std::map<string, sf::Texture> Resources::Textures = {};
-std::map<string, sf::Font> Resources::Fonts = {};
-
 using std::string;
 using std::vector;
+
+std::map<string, sf::Texture> Resources::Textures = {};
+std::map<string, sf::Font> Resources::Fonts = {};
 
 void Resources::addTexture(const string &name, const string &path) {
     sf::Texture tex;
@@ -27,28 +27,23 @@ void Resources::addFont(const string &name, const string &path) {
 }
 
 void Resources::listFolderFiles(const string &path, int degree, string fullQualifier) {
+    vector<string> folderList;
 #ifdef __MING32__
-	std::cout << "WINDOWS DEF" << std::endl;
     HANDLE hFind;
     WIN32_FIND_DATA data;
-
-    vector<string> folderList;
-
     string searchPath = path + "*.*";
     hFind = FindFirstFile(searchPath.c_str(), &data);
     if (hFind != INVALID_HANDLE_VALUE) {
         do {
-            if (string(data.cFileName) == "." or string(data.cFileName) == "..") continue;
+			string filename = data.cFileName;
+            if (string(filename) == "." or string(filename) == "..") continue;
             if ((data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == 16) {
-                folderList.push_back(string(data.cFileName));
+                folderList.push_back(string(filename));
             }
             else {
-                for (int i = 0; i < degree; i++) std::cout << "\t";
-                //addTexture(fullQualifier, )
-                string key = split(fullQualifier.substr(1) + "_" + data.cFileName, '.')[0];
-                string fileExtension = split(fullQualifier.substr(1) + "_" + data.cFileName, '.')[1];
-                string value = path + data.cFileName;
-                std::cout << "key: " << key << " - val: " << value << std::endl;
+                string fileExtension = split(fullQualifier.substr(1) + "_" + filename, '.')[1];
+                string key = split(fullQualifier.substr(1) + "_" + filename, '.')[0];
+                string value = path + filename;
                 if (fileExtension == "ttf")
                     addFont(key, value);
                 else
@@ -56,10 +51,6 @@ void Resources::listFolderFiles(const string &path, int degree, string fullQuali
             }
         } while (FindNextFile(hFind, &data));
         FindClose(hFind);
-    }
-
-    for (auto &p : folderList) {
-        listFolderFiles(path + p + "\\", degree+1, fullQualifier + "_" + p);
     }
 #elif __linux__
 	DIR *d;
@@ -71,16 +62,23 @@ void Resources::listFolderFiles(const string &path, int degree, string fullQuali
 			if (filename == "." or filename == "..") continue;
 			string tabs = string(degree, ' ');
 			if (dir->d_type == DT_DIR) {
-				std::cout << tabs << path + filename + "/" << std::endl;
 				listFolderFiles(path + filename + "/", degree+1, fullQualifier + "_" + filename);
 			}
 			else {
-				std::cout << tabs << filename << std::endl;
+                string fileExtension = split(fullQualifier.substr(1) + "_" + filename, '.')[1];
+                string key = split(fullQualifier.substr(1) + "_" + filename, '.')[0];
+                string value = path + filename;
+                if (fileExtension == "ttf")
+                    addFont(key, value);
+                else
+                    addTexture(key, value);
 			}
 		}
 		closedir(d);
 	}
 #endif
+    for (auto &p : folderList)
+        listFolderFiles(path + p + "\\", degree+1, fullQualifier + "_" + p);
 }
 
 void Resources::scan(const string &rootPath) {
