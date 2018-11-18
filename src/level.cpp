@@ -10,19 +10,19 @@ using std::string;
 using std::to_string;
 
 Level::Level(int levelNumber) {
-	_levelNumber = levelNumber;
+	this->levelNumber = levelNumber;
 	loadBackground();
 }
 
 void Level::update() {
-	moveBackground();
+	scrollBackground();
 }
 
 void Level::draw() {
 	GameManager::window->draw(background);
 }
 
-void Level::moveBackground() {
+void Level::scrollBackground() {
 	if (background.getPosition().y >= 0) complete = true;
 
 	if (scrollTimer.getElapsedTime().asMilliseconds() > Background::ScrollIntervalMs) {
@@ -32,7 +32,7 @@ void Level::moveBackground() {
 }
 
 void Level::loadBackground() {
-	string bkgImgPath = Background::Images::Level + to_string(_levelNumber);
+	string bkgImgPath = Background::Images::Level + to_string(levelNumber);
 
 	background.setTexture(Resources::getTexture(bkgImgPath));
 	background.setColor(Color(255, 255, 255, 255));

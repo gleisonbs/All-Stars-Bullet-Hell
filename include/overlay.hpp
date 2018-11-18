@@ -5,11 +5,16 @@
 
 class Overlay {
 public:
-	void init();
+	void init(int);
 	void draw();
-	void update();
+	void update(int);
 private:
-	sf::Text txt_score;
+	int maxHealth;
+	int currentHealth;
+	long currentScore = 0;
+	int scoreSize = 6;
+
+	sf::Text txtScore;
 	sf::RectangleShape lifebarFilling;
 	sf::RectangleShape lifebarFrame;
 

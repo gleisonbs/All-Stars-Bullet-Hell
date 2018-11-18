@@ -12,11 +12,11 @@ public:
 	//getBackground();
 	sf::Sprite background;
 	bool isComplete() { return complete; }
+	int levelNumber;
 private:
-	bool complete;
+	bool complete = false;
 	sf::Clock dt, scrollTimer;
-	int _levelNumber;
-	void moveBackground();
+	void scrollBackground();
 	void loadBackground();
 };
 

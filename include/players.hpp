@@ -5,6 +5,7 @@
 
 #include <string>
 
+#include "../include/overlay.hpp"
 #include "../include/spaceship.hpp"
 
 class Player : public Spaceship {
@@ -20,6 +21,8 @@ public:
 	void update();
 	void draw_lifebar();
 	void draw_score();
+private:
+	Overlay overlay;
 };
 
 #endif // PLAYERS_HPP

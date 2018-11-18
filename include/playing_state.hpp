@@ -21,7 +21,6 @@ private:
 	void draw_enemies();
 	sf::Clock dt;
 	ShipManager ship_manager;
-	bool level_cleared;
 };
 
 #endif // PLAYING_STATE_HPP

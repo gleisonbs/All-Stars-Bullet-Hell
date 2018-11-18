@@ -11,7 +11,6 @@ using namespace std;
 using namespace sf;
 
 PlayingState::PlayingState() {
-	level_cleared = false;
 	ship_manager.ship_factory.make_player1(Factions::faction2);
 
 	level = Level(1);
@@ -30,7 +29,7 @@ void PlayingState::draw() {
 }
 bool PlayingState::handle_input() {
 
-	if (level.isComplete()) return true;
+	if (level.isComplete()) level = Level(level.levelNumber+1);
 
 	Event e;
 	while(GameManager::window->pollEvent(e)) {
