@@ -10,8 +10,12 @@ using namespace std;
 using namespace sf;
 
 
-Player::Player(string faction) : Spaceship("sprites_factions_" + faction + "_1", faction) {}
-Player::Player() : Spaceship("sprites_factions_" + Races::race2 + "_1", Races::race2) {}
+Player::Player(string faction) : Spaceship(faction + "_2", faction) {
+	txt_score.setFont(Resources::getFont(Fonts::Score));
+}
+Player::Player() : Spaceship(Factions::faction2 + "_1", Factions::faction2) {
+	txt_score.setFont(Resources::getFont(Fonts::Score));
+}
 
 void Player::update() {
 	explosion.set_position(sprite.getPosition());
@@ -77,11 +81,8 @@ void Player::draw_lifebar() {
 }
 
 void Player::draw_score() {
-	sf::Text txt_score;
-	txt_score.setFont(Resources::getFont(Fonts::ResourcePrefix + Fonts::SpaceAge));
 
-	string score_str = to_string(0);
-	while(score_str.size() < 6) score_str = "0" + score_str;
+	string score_str = string(6, '0');
 	txt_score.setString(score_str);
 
 	txt_score.setCharacterSize(48);

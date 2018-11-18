@@ -12,28 +12,17 @@ using namespace sf;
 
 PlayingState::PlayingState() {
 	level_cleared = false;
-	for(int i = 0; i < STAR_COUNT; ++i) stars.push_back(Star());
-	//ship_manager = unique_ptr<ShipManager>(new ShipManager);
-	ship_manager.ship_factory.make_player1(Races::race2);
-	//background = std::unique_ptr<sf::Sprite>(new sf::Sprite);
+	ship_manager.ship_factory.make_player1(Factions::faction2);
 
-	background.setTexture(Resources::getTexture("sprites_backgrounds_lvl_2"));
-	background.setColor(Color(255, 255, 255, 255));
-	background.setPosition(0, -10000);
+	level = Level(1);
 }
 
 void PlayingState::draw() {
 	GameManager::window->clear(Color::Black);
 
-	if (background.getPosition().y < 0) {
-		if (scroll_timer.getElapsedTime().asMilliseconds() > 5) {
-			background.move(0, 5);
-			scroll_timer.restart();
-		}
-	}
-	else level_cleared = true;
+	level.update();
+	level.draw();
 
-	GameManager::window->draw(background);
 	draw_players();
 	draw_enemies();
 
@@ -41,7 +30,7 @@ void PlayingState::draw() {
 }
 bool PlayingState::handle_input() {
 
-	if (level_cleared) return true;
+	if (level.isComplete()) return true;
 
 	Event e;
 	while(GameManager::window->pollEvent(e)) {

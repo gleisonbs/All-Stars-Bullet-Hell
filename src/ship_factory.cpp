@@ -23,12 +23,11 @@ void ShipFactory::update() {
 }
 
 void ShipFactory::make_wave1() {
-    std::cout << Races::ResourcePrefix + Races::race5 + "_F5S2" << std::endl;
-	enemies.push_back(Enemy(Races::ResourcePrefix + Races::race5 + "_F5S2", Races::race5, Vector2f(WINDOW_WIDTH/2, 0)));
-	enemies.push_back(Enemy(Races::ResourcePrefix + Races::race5 + "_F5S2", Races::race3, Vector2f(WINDOW_WIDTH/3, -300)));
-	enemies.push_back(Enemy(Races::ResourcePrefix + Races::race5 + "_F5S2", Races::race5, Vector2f(2*(WINDOW_WIDTH/3), -300)));
-	enemies.push_back(Enemy(Races::ResourcePrefix + Races::race5 + "_F5S2", Races::race3, Vector2f(WINDOW_WIDTH/6, -600)));
-	enemies.push_back(Enemy(Races::ResourcePrefix + Races::race5 + "_F5S2", Races::race5, Vector2f(5*WINDOW_WIDTH/6, -600)));
+	enemies.push_back(Enemy(Factions::faction5 + "_1", Factions::faction5, Vector2f(WINDOW_WIDTH/2, 0)));
+	enemies.push_back(Enemy(Factions::faction3 + "_1", Factions::faction3, Vector2f(WINDOW_WIDTH/3, -300)));
+	enemies.push_back(Enemy(Factions::faction5 + "_1", Factions::faction5, Vector2f(2*(WINDOW_WIDTH/3), -300)));
+	enemies.push_back(Enemy(Factions::faction3 + "_1", Factions::faction3, Vector2f(WINDOW_WIDTH/6, -600)));
+	enemies.push_back(Enemy(Factions::faction5 + "_1", Factions::faction5, Vector2f(5*WINDOW_WIDTH/6, -600)));
 }
 
 void ShipFactory::make_wave2() {

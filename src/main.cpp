@@ -6,6 +6,7 @@
 #include "../include/constants.hpp"
 #include "../include/enemy.hpp"
 #include "../include/game_manager.hpp"
+#include "../include/level.hpp"
 #include "../include/main_menu.hpp"
 #include "../include/ship_factory.hpp"
 #include "../include/spaceship.hpp"
@@ -53,7 +54,7 @@ int main(int argc, char* argv[])
 //    auto resourceManager = ResourceManager.get(ROOT_PATH);
     Resources::scan(ROOT_PATH);
 
-	string name = Races::race2;
+	string name = Factions::faction2;
 	if(argc > 1) name = argv[1];
 
 	RenderWindow window {{WINDOW_WIDTH, WINDOW_HEIGHT}, GAME_TITLE };

@@ -11,7 +11,7 @@ using namespace sf;
 PausedState::PausedState()
 {
 	txt_pause = new Text();
-	txt_pause->setFont(Resources::getFont(Fonts::ResourcePrefix + Fonts::SpaceAge));
+	txt_pause->setFont(Resources::getFont(Fonts::Paused));
 	txt_pause->setString("PAUSED");
 	int string_width = txt_pause->getLocalBounds().width;
 	int string_height = txt_pause->getLocalBounds().height;

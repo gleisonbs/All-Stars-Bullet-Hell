@@ -7,7 +7,6 @@
 
 #include "../include/game_state.hpp"
 #include "../include/resources.hpp"
-#include "../include/star.hpp"
 
 class MainMenu : public GameState {
 public:

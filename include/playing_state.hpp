@@ -6,7 +6,7 @@
 
 #include "../include/game_state.hpp"
 #include "../include/ship_manager.hpp"
-#include "../include/star.hpp"
+#include "../include/level.hpp"
 
 class PlayingState : public GameState {
 public:
@@ -14,12 +14,12 @@ public:
 	virtual void draw();
 	virtual bool handle_input();
 	virtual void update();
+
+	Level level;
 private:
 	void draw_players();
 	void draw_enemies();
-	sf::Clock dt, scroll_timer;
-	sf::Sprite background;
-	std::vector<Star> stars;
+	sf::Clock dt;
 	ShipManager ship_manager;
 	bool level_cleared;
 };

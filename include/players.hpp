@@ -13,6 +13,7 @@ public:
 	Player(std::string);
 	bool invulnerable {};
 	sf::Clock invulnerable_timer;
+	sf::Text txt_score;
 
 	int take_hit(int);
 	void add_score(int);

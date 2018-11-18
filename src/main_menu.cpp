@@ -10,25 +10,25 @@ using namespace sf;
 
 MainMenu::MainMenu() {
 
-	mnu_start.setFont(Resources::getFont(Fonts::ResourcePrefix + Fonts::SpaceAge));
-	mnu_start.setString("Start");
-	mnu_start.setCharacterSize(48);
+	mnu_start.setFont(Resources::getFont(Fonts::MainMenu));
+	mnu_start.setString(Menu::Start);
+	mnu_start.setCharacterSize(Menu::CharachterSize);
 	mnu_start.setPosition((WINDOW_WIDTH-mnu_start.getLocalBounds().width)/2,
 		WINDOW_HEIGHT/4);
 
-	mnu_options.setFont(Resources::getFont(Fonts::ResourcePrefix + Fonts::SpaceAge));
-	mnu_options.setString("Options");
-	mnu_options.setCharacterSize(48);
+	mnu_options.setFont(Resources::getFont(Fonts::MainMenu));
+	mnu_options.setString(Menu::Options);
+	mnu_options.setCharacterSize(Menu::CharachterSize);
 	mnu_options.setPosition((WINDOW_WIDTH-mnu_options.getLocalBounds().width)/2,
 		2*(WINDOW_HEIGHT/4));
 
-	mnu_exit.setFont(Resources::getFont(Fonts::ResourcePrefix + Fonts::SpaceAge));
-	mnu_exit.setString("Exit");
-	mnu_exit.setCharacterSize(48);
+	mnu_exit.setFont(Resources::getFont(Fonts::MainMenu));
+	mnu_exit.setString(Menu::Exit);
+	mnu_exit.setCharacterSize(Menu::CharachterSize);
 	mnu_exit.setPosition((WINDOW_WIDTH-mnu_exit.getLocalBounds().width)/2,
 		3*(WINDOW_HEIGHT/4));
 
-	selector.setTexture(Resources::getTexture("sprites_factions_faction8_wship1"));
+	selector.setTexture(Resources::getTexture(Menu::Cursor));
 	selector.scale(0.2, 0.2);
 	selector.setOrigin(selector.getGlobalBounds().width/2,
 		selector.getGlobalBounds().height/2);
@@ -71,16 +71,14 @@ void MainMenu::draw() {
 }
 
 void MainMenu::update() {
-	if(index == 0) {
-		selector.setPosition(mnu_start.getGlobalBounds().left - selector.getGlobalBounds().width,
-			mnu_start.getGlobalBounds().top-50);
-	}
-	else if(index == 1) {
-		selector.setPosition(mnu_options.getGlobalBounds().left - selector.getGlobalBounds().width,
-			mnu_options.getGlobalBounds().top-50);
-	}
-	else if(index == 2) {
-		selector.setPosition(mnu_exit.getGlobalBounds().left - selector.getGlobalBounds().width,
-			mnu_exit.getGlobalBounds().top-50);
-	}
+	sf::Text mnu_item;
+	if(index == 0)
+		mnu_item = mnu_start;
+	else if(index == 1)
+		mnu_item = mnu_options;
+	else if(index == 2)
+		mnu_item = mnu_exit;
+
+	selector.setPosition(mnu_item.getGlobalBounds().left - selector.getGlobalBounds().width,
+		mnu_item.getGlobalBounds().top - mnu_item.getGlobalBounds().height/2);
 }

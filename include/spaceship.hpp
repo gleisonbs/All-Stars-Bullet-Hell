@@ -29,6 +29,7 @@ public:
 
 protected:
 	int shooting_interval;
+	std::string _faction;
 	sf::Clock timer;
 };
 

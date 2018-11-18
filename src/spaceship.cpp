@@ -16,12 +16,14 @@ Spaceship::Spaceship(const string textureKey, const string faction) :
     Drawable(textureKey, 500, 900, 0.3, 0.3),
     Movable(sf::Vector2f({500, 900}), sf::Vector2f({20, 20}), Ships::details[faction]->acceleration, Ships::details[faction]->backingSpeedFactor) {
 
+	this->_faction = faction;
+
 	hit_points = Ships::details[faction]->hit_points;
 	max_hit_points = hit_points;
 	damage = Ships::details[faction]->body_damage;
 	shooting_interval = Ships::details[faction]->shooting_interval;
 
-	explosion.set(Races::ResourcePrefix + faction + "_explosions_explosion", 60);
+	explosion.set(faction + "_explosions_explosion", 60);
 	for(int x = 0; x < 16; ++x)
 		explosion.add_frame(x*128, 0, 128, 128);
 }
@@ -34,7 +36,7 @@ void Spaceship::shoot() {
 	cout << is_shooting << endl;
 	if(is_shooting) {
 		projectiles.push_back(Projectile(sprite.getPosition().x,
-									top(), damage, Races::race2));
+			top(), damage, Factions::faction2));
 
 		timer.restart();
 	}
