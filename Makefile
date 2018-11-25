@@ -4,7 +4,7 @@ LIBS = -lsfml-graphics -lsfml-window -lsfml-system
 IDIR = include
 SRC = src
 FLAGS = -std=c++11 -I$(IDIR)/
-OBJS = obj/animation.o obj/collision_checker.o obj/drawable.o obj/enemy.o obj/enemy_waves.o obj/enemy_waves_details.o obj/game_manager.o obj/level.o obj/main.o obj/main_menu.o obj/movable.o obj/overlay.o obj/paused_state.o obj/players.o obj/playing_state.o obj/projectile.o obj/resources.o obj/ship_details.o obj/ship_factory.o obj/ship_manager.o obj/ships.o obj/ship_selection.o obj/spaceship.o obj/util.o 
+OBJS = obj/animation.o obj/collision_checker.o obj/drawable.o obj/enemy.o obj/enemy_waves.o obj/enemy_waves_details.o obj/game_manager.o obj/garbage_remover.o obj/level.o obj/main.o obj/main_menu.o obj/movable.o obj/overlay.o obj/paused_state.o obj/players.o obj/playing_state.o obj/projectile.o obj/resources.o obj/ship_details.o obj/ship_factory.o obj/ship_manager.o obj/ships.o obj/ship_selection.o obj/spaceship.o obj/util.o 
 
 all: $(EXE)
 
@@ -30,6 +30,9 @@ obj/enemy_waves_details.o: $(SRC)/enemy_waves_details.cpp
 	$(CXX) $(FLAGS) -c -o $@ $<
 
 obj/game_manager.o: $(SRC)/game_manager.cpp
+	$(CXX) $(FLAGS) -c -o $@ $<
+
+obj/garbage_remover.o: $(SRC)/garbage_remover.cpp
 	$(CXX) $(FLAGS) -c -o $@ $<
 
 obj/level.o: $(SRC)/level.cpp

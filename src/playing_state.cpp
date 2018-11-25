@@ -3,6 +3,7 @@
 #include "../include/constants.hpp"
 #include "../include/playing_state.hpp"
 #include "../include/game_manager.hpp"
+#include "../include/garbage_remover.hpp"
 #include "../include/resources.hpp"
 #include "../include/paused_state.hpp"
 #include "../include/main_menu.hpp"
@@ -52,6 +53,8 @@ bool PlayingState::handle_input() {
 void PlayingState::update() {
 	collisions.check(ship_manager.ship_factory.player1.projectiles, level.enemies);
 	collisions.check(ship_manager.ship_factory.player1, level.enemies);
+	GarbageRemover::clean(ship_manager.ship_factory.player1.projectiles);
+	GarbageRemover::clean(level.enemies);
 	ship_manager.update();
 	level.update();
 }
