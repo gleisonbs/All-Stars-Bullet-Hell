@@ -8,14 +8,23 @@
 using namespace sf;
 using std::string;
 using std::to_string;
+using std::vector;
 
 Level::Level(int levelNumber) {
 	this->levelNumber = levelNumber;
+	enemyWaves = EnemyWaves(levelNumber-1);
 	loadBackground();
 }
 
 void Level::update() {
 	scrollBackground();
+	vector<Enemy> newEnemyWave = enemyWaves.getEnemyWave(levelTimer.getElapsedTime().asSeconds());
+	if (newEnemyWave.size() > 0) {
+		enemies.reserve(enemies.size() + newEnemyWave.size());
+		enemies.insert(enemies.end(), newEnemyWave.begin(), newEnemyWave.end());
+	}
+	for (auto &enemy : enemies)
+		enemy.update();
 }
 
 void Level::draw() {
@@ -40,3 +49,7 @@ void Level::loadBackground() {
 	int y_pos = -(background.getLocalBounds().height - WINDOW_HEIGHT);
 	background.setPosition(0, y_pos);
 };
+
+void makeEnemies() {
+
+}

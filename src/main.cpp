@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
 	if(argc > 1) name = argv[1];
 
 	RenderWindow window {{WINDOW_WIDTH, WINDOW_HEIGHT}, GAME_TITLE };
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(120);
 
 	//window.setMouseCursorVisible(false);
 

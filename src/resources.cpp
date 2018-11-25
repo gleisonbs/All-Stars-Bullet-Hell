@@ -87,15 +87,13 @@ void Resources::scan(const string &rootPath) {
 }
 
 sf::Font& Resources::getFont(const string &fontKey) {
-    std::cout << fontKey << std::endl;
     if (Resources::Fonts.count(fontKey) == 0)
-        std::cout << "KEY NOT IN FONTS" << std::endl;
+        std::cout << fontKey << ": is not a valid font key" << std::endl;
     return Resources::Fonts[fontKey];
 }
 
 sf::Texture& Resources::getTexture(const string &textureKey) {
-    std::cout << textureKey << std::endl;
     if (Resources::Textures.count(textureKey) == 0)
-        std::cout << "KEY NOT IN RESOURCES" << std::endl;
+        std::cout << textureKey << ": is not a valid sprite key" << std::endl;
     return Resources::Textures[textureKey];
 }

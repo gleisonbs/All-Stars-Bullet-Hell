@@ -12,9 +12,15 @@ using namespace sf;
 
 Player::Player(string faction) : Spaceship(faction + "_2", faction) {
 	txt_score.setFont(Resources::getFont(Fonts::Score));
+	overlay.init(300);
 }
 Player::Player() : Spaceship(Factions::faction2 + "_1", Factions::faction2) {
 	txt_score.setFont(Resources::getFont(Fonts::Score));
+	overlay.init(300);
+}
+
+void Player::draw() {
+	overlay.draw();
 }
 
 void Player::update() {
@@ -61,32 +67,3 @@ int Player::take_hit(int dmge) {
 	return hit_points;
 }
 
-void Player::draw_lifebar() {
-
-	RectangleShape in_rec;
-	in_rec.setSize(Vector2f(hit_points, 50));
-	in_rec.setOutlineThickness(0);
-	in_rec.setFillColor(Color::Green);
-	in_rec.setPosition(50, 50);
-	GameManager::window->draw(in_rec);
-
-	RectangleShape out_rec;
-	out_rec.setSize(Vector2f(max_hit_points, 50));
-	out_rec.setOutlineColor(Color::White);
-	out_rec.setOutlineThickness(5);
-	out_rec.setFillColor(Color(255, 255, 255, 0));
-	out_rec.setPosition(50, 50);
-	GameManager::window->draw(out_rec);
-
-}
-
-void Player::draw_score() {
-
-	string score_str = string(6, '0');
-	txt_score.setString(score_str);
-
-	txt_score.setCharacterSize(48);
-	txt_score.setPosition(350, 50);
-
-	GameManager::window->draw(txt_score);
-}

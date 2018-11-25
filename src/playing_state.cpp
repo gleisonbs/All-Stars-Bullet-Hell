@@ -19,7 +19,6 @@ PlayingState::PlayingState() {
 void PlayingState::draw() {
 	GameManager::window->clear(Color::Black);
 
-	level.update();
 	level.draw();
 
 	draw_players();
@@ -37,7 +36,8 @@ bool PlayingState::handle_input() {
 			return true;
 		}
 		if(e.key.code == Keyboard::Key::R) {
-			ship_manager.ship_factory.enemies.clear();
+			level.enemies.clear();
+			//ship_manager.ship_factory.enemies.clear();
 		}
 		if(e.key.code == Keyboard::Key::P) {
 			if(GameManager::pause_timer.getElapsedTime().asMilliseconds() >= 250) {
@@ -52,18 +52,14 @@ bool PlayingState::handle_input() {
 
 void PlayingState::update() {
 	ship_manager.update();
-	int seconds = dt.getElapsedTime().asSeconds();
-	if((seconds % 5 == 0) and seconds > 3) {
-		ship_manager.make_wave(1);
-		++ship_manager.ship_factory.waves_made;
-		dt.restart();
-	}
+	level.update();
 }
 
 void PlayingState::draw_players() {
 	GameManager::window->draw(ship_manager.ship_factory.player1.frame());
-	ship_manager.ship_factory.player1.draw_lifebar();
-	ship_manager.ship_factory.player1.draw_score();
+
+	ship_manager.ship_factory.player1.update();
+	ship_manager.ship_factory.player1.draw();
 
 	for(int i = 0; i < ship_manager.ship_factory.player1.projectiles.size(); ++i)
 		GameManager::window->draw(
@@ -71,7 +67,7 @@ void PlayingState::draw_players() {
 }
 
 void PlayingState::draw_enemies() {
-	for(int i = 0; i < ship_manager.ship_factory.enemies.size(); ++i) {
-		GameManager::window->draw(ship_manager.ship_factory.enemies[i].frame());
+	for(int i = 0; i < level.enemies.size(); ++i) {
+		GameManager::window->draw(level.enemies[i].frame());
 	}
 }

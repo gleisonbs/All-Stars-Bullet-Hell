@@ -16,11 +16,11 @@ public:
 	sf::Clock invulnerable_timer;
 	sf::Text txt_score;
 
+	void draw();
+
 	int take_hit(int);
 	void add_score(int);
 	void update();
-	void draw_lifebar();
-	void draw_score();
 private:
 	Overlay overlay;
 };

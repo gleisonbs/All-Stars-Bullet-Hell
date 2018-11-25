@@ -23,6 +23,8 @@ private:
 
 	void makeScore();
 	void makeLifebar();
+
+	std::string getScoreString();
 };
 
 #endif //OVERLAY_HPP

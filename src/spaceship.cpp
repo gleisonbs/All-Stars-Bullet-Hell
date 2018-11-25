@@ -33,7 +33,6 @@ void Spaceship::shoot() {
 		return;
 
 	bool is_shooting = Keyboard::isKeyPressed(Keyboard::Key::Space);
-	cout << is_shooting << endl;
 	if(is_shooting) {
 		projectiles.push_back(Projectile(sprite.getPosition().x,
 			top(), damage, Factions::faction2));
