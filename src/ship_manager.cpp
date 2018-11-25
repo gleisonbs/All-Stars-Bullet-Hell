@@ -21,26 +21,5 @@ void ShipManager::make_wave(int wave_number) {
 }
 
 void ShipManager::check_collisions() {
-	if(not ship_factory.player1.invulnerable) {
-		for(int i = 0; i < ship_factory.enemies.size(); ++i) {
-			if(ship_factory.enemies[i].exploding) continue;
-			if(ship_factory.player1.rect().intersects(ship_factory.enemies[i].rect())) {
-				ship_factory.player1.take_hit(90);
-			}
-		}
-	}
 
-	for(int i = 0; i < ship_factory.enemies.size(); ++i) {
-		for(int j = 0; j < ship_factory.player1.projectiles.size(); ++j) {
-			if(ship_factory.enemies[i].out_of_screen() or
-				 ship_factory.enemies[i].destroyed or
-				 ship_factory.enemies[i].exploding)
-				continue;
-
-			if( ship_factory.player1.projectiles[j].rect().intersects(ship_factory.enemies[i].rect())) {
-				ship_factory.enemies[i].take_hit(ship_factory.player1.projectiles[j].damage);
-				ship_factory.player1.projectiles.erase(ship_factory.player1.projectiles.begin()+j);
-			}
-		}
-	}
 }

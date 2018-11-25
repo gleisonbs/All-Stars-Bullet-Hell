@@ -18,13 +18,16 @@ public:
 	Spaceship();
 	Spaceship(const std::string, const std::string);
 	void shoot();
-	int take_hit(int);
+	int takeHit(int);
 	sf::Sprite frame();
+	bool isExploding();
+	bool isDestroyed();
+
 	std::vector<Projectile> projectiles;
 	int hit_points, max_hit_points;
 	int damage;
-	bool exploding {};
-	bool destroyed {};
+	bool isExploding_ = false;
+	bool isDestroyed_ = false;
 	Animation explosion;
 
 protected:

@@ -15,15 +15,21 @@ Projectile::Projectile(int bullet_x, int bullet_y, int dmge, const std::string &
 	sprite.setOrigin(sprite.getLocalBounds().width/2,
 	sprite.getLocalBounds().height/2);
 	sprite.setPosition(bullet_x, bullet_y);
-	damage = dmge;
+	damage_ = dmge;
 }
 
 void Projectile::update() {
 	sprite.move(speed);
-	if(bottom() <= 0) out_of_screen = true;
-	else out_of_screen = false;
 }
 
-bool Projectile::is_out_of_screen() {
+bool Projectile::isOutOfScreen() {
 	return bottom() < 0;
+}
+
+void Projectile::takeHit(int damage) {
+	health_ -= damage;
+}
+
+bool Projectile::isDestroyed() {
+	return health_ <= 0;
 }

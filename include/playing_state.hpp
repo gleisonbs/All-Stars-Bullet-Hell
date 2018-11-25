@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 
+#include "../include/collision_checker.hpp"
 #include "../include/game_state.hpp"
 #include "../include/ship_manager.hpp"
 #include "../include/level.hpp"
@@ -20,6 +21,7 @@ private:
 	void draw_players();
 	void draw_enemies();
 	sf::Clock dt;
+	CollisionChekcer collisions;
 	ShipManager ship_manager;
 };
 

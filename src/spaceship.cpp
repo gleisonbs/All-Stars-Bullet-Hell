@@ -41,18 +41,26 @@ void Spaceship::shoot() {
 	}
 }
 
-int Spaceship::take_hit(int dmge) {
+int Spaceship::takeHit(int dmge) {
 	hit_points -= dmge;
 	if(hit_points <= 0) {
 		hit_points = 0;
-		exploding = true;
+		isExploding_ = true;
 		explosion.set_position(sprite.getPosition());
 	}
 	return hit_points;
 }
 
 Sprite Spaceship::frame() {
-	if(exploding)
+	if(isExploding_)
 		return explosion.frame();
 	return sprite;
+}
+
+bool Spaceship::isExploding() {
+	return isExploding_;
+}
+
+bool Spaceship::isDestroyed() {
+	return isDestroyed_;
 }

@@ -37,7 +37,6 @@ bool PlayingState::handle_input() {
 		}
 		if(e.key.code == Keyboard::Key::R) {
 			level.enemies.clear();
-			//ship_manager.ship_factory.enemies.clear();
 		}
 		if(e.key.code == Keyboard::Key::P) {
 			if(GameManager::pause_timer.getElapsedTime().asMilliseconds() >= 250) {
@@ -51,6 +50,8 @@ bool PlayingState::handle_input() {
 }
 
 void PlayingState::update() {
+	collisions.check(ship_manager.ship_factory.player1.projectiles, level.enemies);
+	collisions.check(ship_manager.ship_factory.player1, level.enemies);
 	ship_manager.update();
 	level.update();
 }

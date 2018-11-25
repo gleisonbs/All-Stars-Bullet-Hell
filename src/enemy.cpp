@@ -15,7 +15,7 @@ Enemy::Enemy(const string textureKey, const string faction, Vector2f position) :
 	sprite.rotate(180);
 }
 
-bool Enemy::out_of_screen() {
+bool Enemy::isOutOfScreen() {
 	return bottom() <= 0;
 }
 

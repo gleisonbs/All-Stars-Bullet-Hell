@@ -44,12 +44,12 @@ void Player::update() {
 
 	for(int i = 0; i < projectiles.size(); ++i) {
 		projectiles[i].update();
-		if(projectiles[i].out_of_screen) {
+		if(projectiles[i].isOutOfScreen()) {
 			projectiles.erase(projectiles.begin()+i);
 		}
 	}
 
-	if(explosion.played) destroyed = true;
+	if(explosion.played) isDestroyed_ = true;
 }
 
 int Player::take_hit(int dmge) {
@@ -61,7 +61,7 @@ int Player::take_hit(int dmge) {
 	hit_points -= dmge;
 	if(hit_points <= 0) {
 		hit_points = 0;
-		exploding = true;
+		isExploding_ = true;
 		explosion.set_position(sprite.getPosition());
 	}
 	return hit_points;

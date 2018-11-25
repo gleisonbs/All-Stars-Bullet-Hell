@@ -9,15 +9,15 @@ public:
 	Projectile(int, int, int, const std::string&);
 	Projectile(const Projectile &b) = default;
 	void update();
-	bool is_out_of_screen();
-	// bool collided_with(sf::FloatRect otherObject);
+	void takeHit(int);
+	bool isOutOfScreen();
+	bool isDestroyed();
 	sf::FloatRect rect() { return sprite.getGlobalBounds(); }
+
 	sf::Sprite sprite;
-	bool out_of_screen;
-	int damage;
-	// int health; for piercing bullets that wont be destroyed on collision
+	int damage_;
+	int health_ = 1;
 private:
-	//sf::Texture texture;
 	sf::Vector2f speed {0, -20};
 
 	float x() 		 	 		 { return sprite.getPosition().x; }

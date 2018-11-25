@@ -6,9 +6,11 @@ echo "EXE = allstars" >> Makefile
 
 echo "LIBS = -lsfml-graphics -lsfml-window -lsfml-system" >> Makefile
 
-echo "IDIR = include/" >> Makefile
+echo "IDIR = include" >> Makefile
 
-echo -e "FLAGS = -std=c++11 -I\$(IDIR)" >> Makefile
+echo "SRC = src" >> Makefile
+
+echo -e "FLAGS = -std=c++11 -I\$(IDIR)/" >> Makefile
 
 echo -n "OBJS = " >> Makefile
 for file in src/*
@@ -27,13 +29,13 @@ for file in src/*
 do
 	filename=${file##*/}
 	filename=${filename%.*}
-	echo "obj/$filename.o: src/$filename.cpp" >> Makefile
+	echo "obj/$filename.o: \$(SRC)/$filename.cpp" >> Makefile
 	echo -e "\t\$(CXX) \$(FLAGS) -c -o \$@ \$<\n" >> Makefile
 done
 
-echo -e "main.o: src/main.cpp\n" >> Makefile
+echo -e "main.o: \$(SRC)/main.cpp\n" >> Makefile
 
-echo -e "clean:\n\trm obj/*.o *.gch include/*.gch" >> Makefile
+echo -e "clean:\n\trm obj/*.o *.gch \$(IDIR)/*.gch" >> Makefile
 
 
 clear
@@ -45,5 +47,8 @@ for arg in "$@"; do
 	if [[ $arg == *"m"* ]]; then
 		make
 	fi
-done
 
+	if [[ $arg == *"i"* ]]; then
+		wc -l src/* include/*
+	fi
+done
