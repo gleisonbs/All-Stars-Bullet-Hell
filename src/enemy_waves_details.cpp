@@ -3,8 +3,9 @@
 using namespace std;
 using namespace sf;
 
-EnemyWaveDetails::EnemyWaveDetails(string faction, int numberOfEnemies, vector<Vector2f> positions) {
-	_faction = faction;
-	_numberOfEnemies = numberOfEnemies;
-	_positions = positions;
+EnemyWaveDetails::EnemyWaveDetails(string faction, string shipCode, int numberOfEnemies, vector<Vector2f> positions) {
+	faction_ = faction;
+	shipCode_ = shipCode;
+	numberOfEnemies_ = numberOfEnemies;
+	positions_ = positions;
 }

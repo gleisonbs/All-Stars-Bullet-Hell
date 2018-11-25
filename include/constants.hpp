@@ -32,6 +32,13 @@ namespace Factions {
     const std::string faction9 = ResourcePrefix + "faction9";
 };
 
+namespace ShipCodes {
+    const std::string ship1 = "1";
+    const std::string ship2 = "2";
+    const std::string ship3 = "3";
+    const std::string ship4 = "4";
+}
+
 namespace Menu {
     const std::string Start = "Start";
     const std::string Options = "Options";

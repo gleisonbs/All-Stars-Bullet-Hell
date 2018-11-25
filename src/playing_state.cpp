@@ -54,6 +54,7 @@ void PlayingState::update() {
 	CollisionChecker::check(ship_manager.ship_factory.player1, level.enemies);
 	GarbageRemover::clean(ship_manager.ship_factory.player1.projectiles);
 	GarbageRemover::clean(level.enemies);
+
 	ship_manager.update();
 	level.update();
 }
