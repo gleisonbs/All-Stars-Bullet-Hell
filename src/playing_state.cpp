@@ -28,7 +28,6 @@ void PlayingState::draw() {
 	GameManager::window->display();
 }
 bool PlayingState::handle_input() {
-
 	if (level.isComplete()) level = Level(level.levelNumber+1);
 
 	Event e;
@@ -51,8 +50,8 @@ bool PlayingState::handle_input() {
 }
 
 void PlayingState::update() {
-	collisions.check(ship_manager.ship_factory.player1.projectiles, level.enemies);
-	collisions.check(ship_manager.ship_factory.player1, level.enemies);
+	CollisionChecker::check(ship_manager.ship_factory.player1.projectiles, level.enemies);
+	CollisionChecker::check(ship_manager.ship_factory.player1, level.enemies);
 	GarbageRemover::clean(ship_manager.ship_factory.player1.projectiles);
 	GarbageRemover::clean(level.enemies);
 	ship_manager.update();

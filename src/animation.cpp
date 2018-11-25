@@ -30,12 +30,10 @@ void Animation::add_frame(int x, int y,
 Sprite Animation::frame() {
 	if(timer.getElapsedTime().asMilliseconds() >= interval) {
 		timer.restart();
-		if(i < frames.size()) {
+		if(i < frames.size())
 			++i;
-		}
-		else {
+		else
 			played = true;
-		}
 	}
 
 	sprite.setTextureRect(frames[i]);

@@ -21,7 +21,6 @@ private:
 	void draw_players();
 	void draw_enemies();
 	sf::Clock dt;
-	CollisionChekcer collisions;
 	ShipManager ship_manager;
 };
 

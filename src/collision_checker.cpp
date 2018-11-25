@@ -1,6 +1,6 @@
 #include "../include/collision_checker.hpp"
 
-void CollisionChekcer::check(std::vector<Projectile> &projectiles, std::vector<Enemy> &enemies) {
+void CollisionChecker::check(std::vector<Projectile> &projectiles, std::vector<Enemy> &enemies) {
 	for(auto &enemy : enemies) {
 		for(auto &projectile : projectiles) {
 			if(enemy.isOutOfScreen() or enemy.isDestroyed() or enemy.isExploding() or projectile.isDestroyed())
@@ -14,7 +14,7 @@ void CollisionChekcer::check(std::vector<Projectile> &projectiles, std::vector<E
 	}
 }
 
-void CollisionChekcer::check(Player &player, std::vector<Enemy> &enemies) {
+void CollisionChecker::check(Player &player, std::vector<Enemy> &enemies) {
 	if(player.invulnerable)
 		return;
 

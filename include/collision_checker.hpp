@@ -7,11 +7,12 @@
 #include "../include/players.hpp"
 #include "../include/projectile.hpp"
 
-class CollisionChekcer {
+class CollisionChecker {
 public:
-	void check(std::vector<Projectile>&, std::vector<Enemy>&);
-	void check(Player&, std::vector<Enemy>&);
+	void static check(std::vector<Projectile>&, std::vector<Enemy>&);
+	void static check(Player&, std::vector<Enemy>&);
 private:
+	CollisionChecker();
 };
 
 #endif // COLLISION_CHECKER_HPP
