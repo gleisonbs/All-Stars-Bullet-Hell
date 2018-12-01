@@ -12,9 +12,9 @@
 using namespace std;
 using namespace sf;
 
-Spaceship::Spaceship(const string textureKey, const string faction) :
-    Drawable(textureKey, 500, 900, 0.3, 0.3),
-    Movable(sf::Vector2f({500, 900}), sf::Vector2f({20, 20}), Ships::details[faction]->acceleration, Ships::details[faction]->backingSpeedFactor) {
+Spaceship::Spaceship(const string faction, const string shipCode) :
+    Drawable(faction + "_" + shipCode, 500, 900, 0.3, 0.3),
+    Movable(sf::Vector2f({500, 900}), Ships::details[faction]->max_speed, Ships::details[faction]->acceleration, Ships::details[faction]->backingSpeedFactor) {
 
 	this->_faction = faction;
 

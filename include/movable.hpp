@@ -12,13 +12,13 @@ public:
 
 protected:
     sf::Vector2f position {0, 0};
+    sf::Vector2f maxSpeed {0, 0};
 
 private:
     void accelerate(bool, bool, bool, bool);
 
     sf::Vector2f acceleration {0, 0};
     sf::Vector2f currentSpeed {0, 0};
-    sf::Vector2f maxSpeed {0, 0};
     double backingSpeedFactor;
 };
 

@@ -12,9 +12,8 @@ using namespace std;
 using namespace sf;
 
 PlayingState::PlayingState() {
-	ship_manager.ship_factory.make_player1(Factions::faction2);
-
 	level = Level(1);
+	player = Player(Factions::faction1);
 }
 
 void PlayingState::draw() {
@@ -50,24 +49,24 @@ bool PlayingState::handle_input() {
 }
 
 void PlayingState::update() {
-	CollisionChecker::check(ship_manager.ship_factory.player1.projectiles, level.enemies);
-	CollisionChecker::check(ship_manager.ship_factory.player1, level.enemies);
-	GarbageRemover::clean(ship_manager.ship_factory.player1.projectiles);
+	CollisionChecker::check(player.projectiles, level.enemies);
+	CollisionChecker::check(player, level.enemies);
+	GarbageRemover::clean(player.projectiles);
 	GarbageRemover::clean(level.enemies);
 
-	ship_manager.update();
+	player.update();
 	level.update();
 }
 
 void PlayingState::draw_players() {
-	GameManager::window->draw(ship_manager.ship_factory.player1.frame());
+	GameManager::window->draw(player.frame());
 
-	ship_manager.ship_factory.player1.update();
-	ship_manager.ship_factory.player1.draw();
+	player.update();
+	player.draw();
 
-	for(int i = 0; i < ship_manager.ship_factory.player1.projectiles.size(); ++i)
+	for(int i = 0; i < player.projectiles.size(); ++i)
 		GameManager::window->draw(
-			ship_manager.ship_factory.player1.projectiles[i].sprite);
+			player.projectiles[i].sprite);
 }
 
 void PlayingState::draw_enemies() {

@@ -24,7 +24,7 @@ vector<Enemy> EnemyWaves::getEnemyWave(int secondsPassed) {
 			string shipCode = waves[waveTiming.first].shipCode_;
 			for (int i = 0; i < waves[waveTiming.first].numberOfEnemies_; i++) {
 				Vector2f position = waves[waveTiming.first].positions_[i];
-				enemies.push_back(Enemy(faction + "_" + shipCode, faction, position));
+				enemies.push_back(Enemy(faction, shipCode, position));
 			}
 		}
 	}
@@ -34,9 +34,9 @@ vector<Enemy> EnemyWaves::getEnemyWave(int secondsPassed) {
 void EnemyWaves::setUpWaves() {
 	vector<Vector2f> wave0Positions = { Vector2f(100, 0), Vector2f(200, 0), Vector2f(300, 0), Vector2f(400, 0) };
 	waves[0] = EnemyWaveDetails(Factions::faction1, ShipCodes::ship1, 4, wave0Positions);
-	waves[1] = EnemyWaveDetails(Factions::faction1, ShipCodes::ship2, 4, wave0Positions);
-	waves[2] = EnemyWaveDetails(Factions::faction1, ShipCodes::ship3, 4, wave0Positions);
-	waves[3] = EnemyWaveDetails(Factions::faction1, ShipCodes::ship4, 4, wave0Positions);
+	waves[1] = EnemyWaveDetails(Factions::faction2, ShipCodes::ship2, 4, wave0Positions);
+	waves[2] = EnemyWaveDetails(Factions::faction3, ShipCodes::ship3, 4, wave0Positions);
+	waves[3] = EnemyWaveDetails(Factions::faction4, ShipCodes::ship4, 4, wave0Positions);
 }
 
 void EnemyWaves::setUpTimings() {

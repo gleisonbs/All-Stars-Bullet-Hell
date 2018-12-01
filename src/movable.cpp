@@ -1,6 +1,10 @@
 #include <cmath>
+#include <iostream>
 
+#include "../include/constants.hpp"
 #include "../include/movable.hpp"
+
+using namespace std;
 
 Movable::Movable(sf::Vector2f initialPosition, sf::Vector2f maxSpeed, sf::Vector2f acceleration, double backingSpeedFactor)
 {
@@ -47,6 +51,9 @@ void Movable::accelerate(bool goingLeft, bool goingRight, bool goingUp, bool goi
 void Movable::move(bool goingLeft, bool goingRight, bool goingUp, bool goingDown) {
     accelerate(goingLeft, goingRight, goingUp, goingDown);
 
-    position.x += currentSpeed.x;
-    position.y += currentSpeed.y;
+	if ((goingLeft and position.x > 0) or (goingRight and position.x < WINDOW_WIDTH))
+    	position.x += currentSpeed.x;
+
+	if ((goingUp and position.y > 0) or (goingDown and position.y < WINDOW_HEIGHT))
+    	position.y += currentSpeed.y;
 }

@@ -8,7 +8,7 @@
 using namespace std;
 using namespace sf;
 
-Enemy::Enemy(const string textureKey, const string faction, Vector2f position) : Spaceship(textureKey, faction) {
+Enemy::Enemy(const string faction, const string shipCode, Vector2f position) : Spaceship(faction, shipCode) {
 	sprite.setPosition(position);
 	sprite.setOrigin(sprite.getGlobalBounds().width/2,
 	sprite.getGlobalBounds().height/2);
@@ -20,8 +20,11 @@ bool Enemy::isOutOfScreen() {
 }
 
 void Enemy::update() {
-	if(hit_points > 0)
-		sprite.move(sf::Vector2f{0, 1});
-
 	explosion.set_position(sprite.getPosition());
+
+	if(hit_points > 0)
+		sprite.move(0, maxSpeed.y);
+		//sprite.move(sf::Vector2f{0, 1});
+
+	if(explosion.played) isDestroyed_ = true;
 }

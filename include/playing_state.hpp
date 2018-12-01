@@ -17,6 +17,7 @@ public:
 	virtual void update();
 
 	Level level;
+	Player player;
 private:
 	void draw_players();
 	void draw_enemies();

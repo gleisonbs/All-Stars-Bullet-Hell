@@ -10,11 +10,11 @@ using namespace std;
 using namespace sf;
 
 
-Player::Player(string faction) : Spaceship(faction + "_2", faction) {
+Player::Player(string faction) : Spaceship(faction, ShipCodes::ship1) {
 	txt_score.setFont(Resources::getFont(Fonts::Score));
 	overlay.init(300);
 }
-Player::Player() : Spaceship(Factions::faction2 + "_1", Factions::faction2) {
+Player::Player() : Spaceship(Factions::faction3, ShipCodes::ship1) {
 	txt_score.setFont(Resources::getFont(Fonts::Score));
 	overlay.init(300);
 }
@@ -24,7 +24,13 @@ void Player::draw() {
 }
 
 void Player::update() {
+	for(auto &projectile : projectiles)
+		projectile.update();
+
+	if (isDestroyed()) return;
+
 	explosion.set_position(sprite.getPosition());
+
 	if(invulnerable_timer.getElapsedTime().asMilliseconds() > 1500) {
 		invulnerable = false;
 		sprite.setColor(Color(255, 255, 255, 255));
@@ -38,16 +44,12 @@ void Player::update() {
 	bool goingDown = Keyboard::isKeyPressed(Keyboard::Key::Down);
 	if(goingUp and goingDown) { goingUp = false; goingDown = false; }
 
-    move(goingLeft, goingRight, goingUp, goingDown);
-    setPosition(this->position);
-	shoot();
-
-	for(int i = 0; i < projectiles.size(); ++i) {
-		projectiles[i].update();
-		if(projectiles[i].isOutOfScreen()) {
-			projectiles.erase(projectiles.begin()+i);
-		}
+	if (not isExploding()) {
+	    move(goingLeft, goingRight, goingUp, goingDown);
+		shoot();
 	}
+
+    setPosition(this->position);
 
 	if(explosion.played) isDestroyed_ = true;
 }
