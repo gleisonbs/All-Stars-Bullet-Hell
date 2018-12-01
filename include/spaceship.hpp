@@ -13,7 +13,7 @@
 #include "../include/drawable.hpp"
 #include "../include/movable.hpp"
 
-class Spaceship : public Drawable, public Movable {
+class Spaceship : public Movable {
 public:
 	Spaceship();
 	Spaceship(const std::string, const std::string, double=0.3);

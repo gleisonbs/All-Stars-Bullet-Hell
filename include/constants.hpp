@@ -6,7 +6,6 @@
 const std::string IMAGES_DIR = "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\sprites\\";
 const std::string IMAGES_SHIPS = "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\sprites\\spaceships\\";
 const std::string ROOT_PATH = "./res/";
-//const std::string ROOT_PATH = "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\";
 constexpr int WINDOW_WIDTH = 1900;
 constexpr int WINDOW_HEIGHT = 1060;
 constexpr int STAR_COUNT = 600;

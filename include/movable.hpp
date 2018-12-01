@@ -7,8 +7,25 @@
 class Movable
 {
 public:
-    Movable(sf::Vector2f, sf::Vector2f, sf::Vector2f, double);
+    Movable(sf::Vector2f, sf::Vector2f, sf::Vector2f, double, std::string, double scale);
     void move(bool, bool, bool, bool);
+
+    sf::Sprite frame();
+    void setPosition(sf::Vector2f position) { sprite.setPosition(position); }
+
+    sf::FloatRect rect() { return sprite.getGlobalBounds(); }
+
+    float x()       { return sprite.getPosition().x; }
+	float y()       { return sprite.getPosition().y; }
+	float width()   { return rect().width; }
+	float height()  { return rect().height; }
+	float left()    { return x() - width()/2; }
+	float right()   { return x() + width()/2; }
+	float top()     { return y() - height()/2; }
+	float bottom()  { return y() + height()/2; }
+
+    sf::Sprite sprite;
+    sf::Texture texture;
 
 protected:
     sf::Vector2f position {0, 0};
