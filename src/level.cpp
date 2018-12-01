@@ -6,6 +6,8 @@
 #include "../include/resources.hpp"
 
 using namespace sf;
+using std::cout;
+using std::endl;
 using std::string;
 using std::to_string;
 using std::vector;

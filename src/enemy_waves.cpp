@@ -12,7 +12,9 @@ EnemyWaves::EnemyWaves(int level) {
 	setUpTimings();
 
 	set<int> lvl1WavesMadeSet = {};
+	set<int> lvl2WavesMadeSet = {};
 	wavesMadePerLevel.push_back(lvl1WavesMadeSet);
+	wavesMadePerLevel.push_back(lvl2WavesMadeSet);
 }
 
 vector<Enemy> EnemyWaves::getEnemyWave(int secondsPassed) {
@@ -45,8 +47,14 @@ void EnemyWaves::setUpTimings() {
 	lvl1WaveTimings.push_back(make_pair<int, int>(1, 7));
 	lvl1WaveTimings.push_back(make_pair<int, int>(2, 9));
 	lvl1WaveTimings.push_back(make_pair<int, int>(3, 11));
-
 	waveTimingsPerLevel.push_back(lvl1WaveTimings);
+
+	vector<pair<int, int>> lvl2WaveTimings;
+	lvl2WaveTimings.push_back(make_pair<int, int>(0, 5));
+	lvl2WaveTimings.push_back(make_pair<int, int>(1, 7));
+	lvl2WaveTimings.push_back(make_pair<int, int>(2, 9));
+	lvl2WaveTimings.push_back(make_pair<int, int>(3, 11));
+	waveTimingsPerLevel.push_back(lvl2WaveTimings);
 }
 
 void EnemyWaves::setLevel(int level) {

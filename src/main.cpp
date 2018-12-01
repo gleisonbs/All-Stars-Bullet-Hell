@@ -8,7 +8,6 @@
 #include "../include/game_manager.hpp"
 #include "../include/level.hpp"
 #include "../include/main_menu.hpp"
-#include "../include/ship_factory.hpp"
 #include "../include/spaceship.hpp"
 #include "../include/resources.hpp"
 

@@ -48,7 +48,7 @@ namespace Menu {
 }
 
 namespace Background {
-	const int ScrollSpeed = 2;
+	const int ScrollSpeed = 6;
 	const int ScrollIntervalMs = 15;
 
 	namespace Images {

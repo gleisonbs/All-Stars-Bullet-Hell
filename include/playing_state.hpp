@@ -6,7 +6,6 @@
 
 #include "../include/collision_checker.hpp"
 #include "../include/game_state.hpp"
-#include "../include/ship_manager.hpp"
 #include "../include/level.hpp"
 
 class PlayingState : public GameState {
@@ -22,7 +21,6 @@ private:
 	void draw_players();
 	void draw_enemies();
 	sf::Clock dt;
-	ShipManager ship_manager;
 };
 
 #endif // PLAYING_STATE_HPP
