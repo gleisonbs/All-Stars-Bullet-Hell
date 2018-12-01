@@ -16,7 +16,7 @@
 class Spaceship : public Drawable, public Movable {
 public:
 	Spaceship();
-	Spaceship(const std::string, const std::string);
+	Spaceship(const std::string, const std::string, double=0.3);
 	void shoot();
 	int takeHit(int);
 	sf::Sprite frame();

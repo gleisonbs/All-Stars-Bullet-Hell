@@ -8,7 +8,7 @@
 using namespace std;
 using namespace sf;
 
-Enemy::Enemy(const string faction, const string shipCode, Vector2f position) : Spaceship(faction, shipCode) {
+Enemy::Enemy(const string faction, const string shipCode, Vector2f position, double scale) : Spaceship(faction, shipCode, scale) {
 	sprite.setPosition(position);
 	sprite.setOrigin(sprite.getGlobalBounds().width/2,
 	sprite.getGlobalBounds().height/2);

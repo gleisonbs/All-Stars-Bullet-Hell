@@ -12,8 +12,8 @@
 using namespace std;
 using namespace sf;
 
-Spaceship::Spaceship(const string faction, const string shipCode) :
-    Drawable(faction + "_" + shipCode, 500, 900, 0.3, 0.3),
+Spaceship::Spaceship(const string faction, const string shipCode, double scale) :
+    Drawable(faction + "_" + shipCode, 500, 900, scale),
     Movable(sf::Vector2f({500, 900}), Ships::details[faction]->max_speed, Ships::details[faction]->acceleration, Ships::details[faction]->backingSpeedFactor) {
 
 	this->_faction = faction;

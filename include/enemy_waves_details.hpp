@@ -8,10 +8,11 @@
 class EnemyWaveDetails {
 public:
 	EnemyWaveDetails() {};
-	EnemyWaveDetails(std::string, std::string, int, std::vector<sf::Vector2f>);
+	EnemyWaveDetails(std::string, std::string, int, std::vector<sf::Vector2f>, double);
 	std::string faction_;
 	std::string shipCode_;
 	int numberOfEnemies_;
+	double scale_;
 	std::vector<sf::Vector2f> positions_;
 };
 

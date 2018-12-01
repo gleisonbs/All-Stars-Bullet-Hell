@@ -7,7 +7,7 @@
 
 class Enemy : public Spaceship {
 public:
-	Enemy(const std::string, const std::string, sf::Vector2f);
+	Enemy(const std::string, const std::string, sf::Vector2f, double);
 	void update();
 	bool isOutOfScreen();
 };

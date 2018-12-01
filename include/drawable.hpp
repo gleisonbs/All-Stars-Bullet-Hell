@@ -6,7 +6,7 @@
 class Drawable {
 public:
     Drawable() {};
-    Drawable(std::string, int, int, double, double);
+    Drawable(std::string, int, int, double);
     sf::Sprite frame();
     void setPosition(sf::Vector2f position) { sprite.setPosition(position); }
 
