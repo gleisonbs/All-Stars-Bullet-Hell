@@ -9,10 +9,10 @@ using namespace sf;
 
 Animation::Animation() { i = 0; }
 
-void Animation::set(const string textureKey, int frame_interval)
+void Animation::set(const string textureKey, int frameInterval)
 {
 	i = 0;
-	interval = frame_interval;
+	_frameInterval = frameInterval;
 
 	sprite.setTexture(Resources::getTexture(textureKey));
 	sprite.setColor(Color(255, 255, 255, 255));
@@ -25,25 +25,38 @@ void Animation::add_frame(int x, int y,
 	frame_width = width;
 	frame_height = height;
 	frames.push_back(IntRect(x, y, width, height));
+
+	sprite.setTextureRect(frames[0]);
 }
 
 Sprite Animation::frame() {
-	if(timer.getElapsedTime().asMilliseconds() >= interval) {
-		timer.restart();
-		if(i < frames.size())
-			++i;
-		else
-			played = true;
-	}
+	if(timer.getElapsedTime().asMilliseconds() >= _frameInterval) {
+		i++;
 
-	sprite.setTextureRect(frames[i]);
+		if(i >= frames.size()) {
+			if (_shouldLoop) reset();
+			else played = true;
+		}
+
+		sprite.setTextureRect(frames[i]);
+		timer.restart();
+	}
 
 	return sprite;
 }
 
-void Animation::set_position(Vector2f v) {
+void Animation::setPosition(Vector2f v) {
 	float x = v.x;
 	float y = v.y;
 
 	sprite.setPosition({x-frame_width/2,y});
+}
+
+void Animation::reset() {
+	i = 0;
+	played = false;
+}
+
+void Animation::setScale(double scale) {
+	sprite.scale(scale, scale);
 }

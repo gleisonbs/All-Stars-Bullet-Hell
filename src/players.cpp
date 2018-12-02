@@ -27,21 +27,22 @@ void Player::update() {
 	for(auto &projectile : projectiles)
 		projectile.update();
 
+	explosion.setPosition(sprite.getPosition());
+
 	if (isDestroyed()) return;
 
-	explosion.set_position(sprite.getPosition());
 
 	if(invulnerable_timer.getElapsedTime().asMilliseconds() > 1500) {
 		invulnerable = false;
 		sprite.setColor(Color(255, 255, 255, 255));
 	}
 
-	bool goingLeft = Keyboard::isKeyPressed(Keyboard::Key::Left);
-	bool goingRight = Keyboard::isKeyPressed(Keyboard::Key::Right);
+	goingLeft = Keyboard::isKeyPressed(Keyboard::Key::Left);
+	goingRight = Keyboard::isKeyPressed(Keyboard::Key::Right);
 	if (goingLeft and goingRight) { goingLeft = false; goingRight = false; }
 
-	bool goingUp = Keyboard::isKeyPressed(Keyboard::Key::Up);
-	bool goingDown = Keyboard::isKeyPressed(Keyboard::Key::Down);
+	goingUp = Keyboard::isKeyPressed(Keyboard::Key::Up);
+	goingDown = Keyboard::isKeyPressed(Keyboard::Key::Down);
 	if(goingUp and goingDown) { goingUp = false; goingDown = false; }
 
 	if (not isExploding()) {
@@ -64,7 +65,6 @@ int Player::take_hit(int dmge) {
 	if(hit_points <= 0) {
 		hit_points = 0;
 		isExploding_ = true;
-		explosion.set_position(sprite.getPosition());
 	}
 	return hit_points;
 }

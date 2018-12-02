@@ -29,6 +29,12 @@ Spaceship::Spaceship(const string faction, const string shipCode, double scale) 
 	explosion.set(faction + "_explosions_explosion", 60);
 	for(int x = 0; x < 16; ++x)
 		explosion.add_frame(x*128, 0, 128, 128);
+
+	movingUpAnimation.set(faction + "_goingUp", 60);
+	movingUpAnimation.loop(true);
+	movingUpAnimation.setScale(scale);
+	for(int x = 0; x < 2; ++x)
+		movingUpAnimation.add_frame(x*172, 0, 172, 302);
 }
 
 void Spaceship::shoot() {
@@ -49,7 +55,6 @@ int Spaceship::takeHit(int dmge) {
 	if(hit_points <= 0) {
 		hit_points = 0;
 		isExploding_ = true;
-		explosion.set_position(sprite.getPosition());
 	}
 	return hit_points;
 }
@@ -57,6 +62,12 @@ int Spaceship::takeHit(int dmge) {
 Sprite Spaceship::frame() {
 	if(isExploding_)
 		return explosion.frame();
+
+	if (goingUp) {
+		movingUpAnimation.setPosition(position);
+		return movingUpAnimation.frame();
+	}
+
 	return sprite;
 }
 

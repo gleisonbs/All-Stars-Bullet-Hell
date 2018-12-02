@@ -6,8 +6,8 @@
 const std::string IMAGES_DIR = "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\sprites\\";
 const std::string IMAGES_SHIPS = "C:\\Users\\Gleison\\Desktop\\Projetos\\AllStars\\res\\sprites\\spaceships\\";
 const std::string ROOT_PATH = "./res/";
-constexpr int WINDOW_WIDTH = 1900;
-constexpr int WINDOW_HEIGHT = 1060;
+constexpr int WINDOW_WIDTH = 1860;
+constexpr int WINDOW_HEIGHT = 1000;
 constexpr int STAR_COUNT = 600;
 
 namespace Fonts {

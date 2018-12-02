@@ -10,7 +10,6 @@
 
 #include "../include/projectile.hpp"
 #include "../include/animation.hpp"
-#include "../include/drawable.hpp"
 #include "../include/movable.hpp"
 
 class Spaceship : public Movable {
@@ -29,8 +28,10 @@ public:
 	bool isExploding_ = false;
 	bool isDestroyed_ = false;
 	Animation explosion;
+	Animation movingUpAnimation;
 
 protected:
+	bool goingUp = false, goingDown = false, goingLeft = false, goingRight = false;
 	int shooting_interval;
 	std::string _faction;
 	sf::Clock timer;

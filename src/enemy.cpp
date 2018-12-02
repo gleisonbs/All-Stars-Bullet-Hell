@@ -20,11 +20,14 @@ bool Enemy::isOutOfScreen() {
 }
 
 void Enemy::update() {
-	explosion.set_position(sprite.getPosition());
+	explosion.setPosition(sprite.getPosition());
 
 	if(hit_points > 0)
-		sprite.move(0, maxSpeed.y);
-		//sprite.move(sf::Vector2f{0, 1});
+		move();
 
 	if(explosion.played) isDestroyed_ = true;
+}
+
+void Enemy::move() {
+	sprite.move(0, maxSpeed.y);
 }
