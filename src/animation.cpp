@@ -49,7 +49,7 @@ void Animation::setPosition(Vector2f v) {
 	float x = v.x;
 	float y = v.y;
 
-	sprite.setPosition({x-frame_width/2,y});
+	sprite.setPosition({ x, y });
 }
 
 void Animation::reset() {
@@ -59,4 +59,9 @@ void Animation::reset() {
 
 void Animation::setScale(double scale) {
 	sprite.scale(scale, scale);
+}
+
+void Animation::setOrigin(int x, int y)
+{
+	sprite.setOrigin(x, y);
 }

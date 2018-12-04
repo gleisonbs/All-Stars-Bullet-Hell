@@ -15,6 +15,7 @@ public:
 	sf::Sprite frame();
 	void setPosition(sf::Vector2f);
 	void setScale(double);
+	void setOrigin(int, int);
 	void reset();
 
 	bool played = false;
